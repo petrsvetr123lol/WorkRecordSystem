@@ -8,5 +8,17 @@ namespace WorkRecordSystem
 {
     public class User
     {
+        public string Name { get; }
+        public string Password { get; }
+
+        public User(string name, string password)
+        {
+            Name = name;
+            Password = password;
+        }
+        public bool VerifyPassword(string text)
+        {
+            return Password == text;
+        }
     }
 }

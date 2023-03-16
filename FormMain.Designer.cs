@@ -30,6 +30,7 @@
         {
             lblUser = new Label();
             label2 = new Label();
+            btnLogout = new Button();
             SuspendLayout();
             // 
             // lblUser
@@ -52,17 +53,29 @@
             label2.TabIndex = 1;
             label2.Text = "Přihlášený uživatel:";
             // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(749, 63);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(75, 23);
+            btnLogout.TabIndex = 2;
+            btnLogout.Text = "Odhlásit se";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(866, 518);
+            Controls.Add(btnLogout);
             Controls.Add(label2);
             Controls.Add(lblUser);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FormMain";
             Text = "FormMain";
+            FormClosed += FormMain_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -71,5 +84,6 @@
 
         private Label lblUser;
         private Label label2;
+        private Button btnLogout;
     }
 }

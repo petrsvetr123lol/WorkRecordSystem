@@ -89,6 +89,7 @@
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Přihlásit se";
             btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // btnCancel
             // 
@@ -99,6 +100,7 @@
             btnCancel.TabIndex = 6;
             btnCancel.Text = "Zrušit";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // FormLogin
             // 
