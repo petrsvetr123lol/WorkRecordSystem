@@ -18,6 +18,8 @@ namespace WorkRecordSystem
         {
             InitializeComponent();
             sqlRepo = new SqlRepo();
+            sqlRepo.ConvertUsersToHashed();
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -41,6 +43,22 @@ namespace WorkRecordSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
+        }
+
+        private void FormLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
         }
     }
 }

@@ -90,6 +90,7 @@
             btnLogin.Text = "Přihlásit se";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
+            btnLogin.KeyDown += btnLogin_KeyDown;
             // 
             // btnCancel
             // 
@@ -118,6 +119,7 @@
             MaximizeBox = false;
             Name = "FormLogin";
             Text = "FormLogin";
+            KeyDown += FormLogin_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
