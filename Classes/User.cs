@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 
 
-namespace WorkRecordSystem
+namespace WorkRecordSystem.Classes
 {
     public class User
     {

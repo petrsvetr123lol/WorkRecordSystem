@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
 
 
-namespace WorkRecordSystem
+namespace WorkRecordSystem.Classes
 {
     public class SqlRepo
     {

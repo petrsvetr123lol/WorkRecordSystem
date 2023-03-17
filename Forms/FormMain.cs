@@ -1,3 +1,5 @@
+using WorkRecordSystem.Classes;
+
 namespace WorkRecordSystem
 {
     public partial class FormMain : Form
