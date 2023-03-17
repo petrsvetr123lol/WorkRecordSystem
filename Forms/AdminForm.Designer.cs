@@ -1,6 +1,6 @@
 ﻿namespace WorkRecordSystem
 {
-    partial class FormMain
+    partial class AdminForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -63,17 +63,17 @@
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
             // 
-            // FormMain
+            // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(866, 518);
+            ClientSize = new Size(864, 521);
             Controls.Add(btnLogout);
             Controls.Add(label2);
             Controls.Add(lblUser);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "FormMain";
+            Name = "AdminForm";
             Text = "FormMain";
             FormClosed += FormMain_FormClosed;
             ResumeLayout(false);

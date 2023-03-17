@@ -2,13 +2,13 @@ using WorkRecordSystem.Classes;
 
 namespace WorkRecordSystem
 {
-    public partial class FormMain : Form
+    public partial class AdminForm : Form
     {
 
         private bool closeAll;
         private Form startupForm;
         private User user;
-        public FormMain(User user)
+        public AdminForm(User user)
         {
             closeAll = true;
             this.user = user;

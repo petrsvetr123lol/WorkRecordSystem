@@ -30,7 +30,7 @@ namespace WorkRecordSystem
             {
                 if (user.VerifyPassword(txtPassword.Text.Trim()))
                 {
-                    var mainForm = new FormMain(user);
+                    var mainForm = new AdminForm(user);
                     mainForm.Show(this);
                     txtPassword.Text = "";
                     txtUsername.Text = "";
