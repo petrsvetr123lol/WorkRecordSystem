@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WorkRecordSystem.Forms
 {
-    public partial class AddForm : Form
+    public partial class AddUserForm : Form
     {
-        public AddForm()
+        public AddUserForm()
         {
             InitializeComponent();
         }

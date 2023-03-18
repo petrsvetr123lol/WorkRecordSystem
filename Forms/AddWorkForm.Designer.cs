@@ -28,12 +28,104 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "AddWorkForm";
+            label1 = new Label();
+            rtxtDescription = new RichTextBox();
+            txtName = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            btnCancel = new Button();
+            btnSave = new Button();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(53, 46);
+            label1.Name = "label1";
+            label1.Size = new Size(257, 37);
+            label1.TabIndex = 0;
+            label1.Text = "Přidání nové práce";
+            // 
+            // rtxtDescription
+            // 
+            rtxtDescription.Location = new Point(44, 203);
+            rtxtDescription.Name = "rtxtDescription";
+            rtxtDescription.Size = new Size(280, 96);
+            rtxtDescription.TabIndex = 1;
+            rtxtDescription.Text = "";
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(121, 129);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(203, 23);
+            txtName.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(44, 132);
+            label2.Name = "label2";
+            label2.Size = new Size(71, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Název práce";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(44, 174);
+            label3.Name = "label3";
+            label3.Size = new Size(68, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Popis práce";
+            // 
+            // btnCancel
+            // 
+            btnCancel.Location = new Point(86, 330);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 23);
+            btnCancel.TabIndex = 5;
+            btnCancel.Text = "Zrušit";
+            btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(212, 330);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(75, 23);
+            btnSave.TabIndex = 6;
+            btnSave.Text = "Uložit";
+            btnSave.UseVisualStyleBackColor = true;
+            // 
+            // AddWorkForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(377, 399);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(txtName);
+            Controls.Add(rtxtDescription);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "AddWorkForm";
+            Text = "AddWorkForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private RichTextBox rtxtDescription;
+        private TextBox txtName;
+        private Label label2;
+        private Label label3;
+        private Button btnCancel;
+        private Button btnSave;
     }
 }

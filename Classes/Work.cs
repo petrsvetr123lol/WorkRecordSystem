@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WorkRecordSystem.Classes
 {
-    internal class Work
+    public class Work
     {
+
     }
 }
