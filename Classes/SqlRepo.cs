@@ -36,7 +36,7 @@ namespace WorkRecordSystem.Classes
             }
             return users;
         }
-
+      
         public User? GetUser(string username)
         {
             User? user = null;
@@ -59,6 +59,29 @@ namespace WorkRecordSystem.Classes
             }
             return user;
         }
+
+       public int IsUserAdmin(string username)
+        {
+            int isAdmin = 0;
+            using(SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using(SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT IsAdmin FROM Users WHERE Name=@username";
+                    cmd.Parameters.AddWithValue ("@username", username);
+                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            isAdmin = (int)reader["IsAdmin"];
+                        }
+                    }
+                }
+            }
+            return isAdmin; 
+        }
+
         public void SaveUser(User user)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -83,6 +106,7 @@ namespace WorkRecordSystem.Classes
                 SaveUser(user);
             }
         }
+   
 
     }
 }

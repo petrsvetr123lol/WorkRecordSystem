@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
-
+using System.Reflection.Metadata.Ecma335;
 
 namespace WorkRecordSystem.Classes
 {
@@ -34,6 +34,7 @@ namespace WorkRecordSystem.Classes
             }
             return hash.SequenceEqual(PasswordHash);
         }
+       
         public void CreatePasswordHash(string password)
         {
             using (var hmac = new HMACSHA512())

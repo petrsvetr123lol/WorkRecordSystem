@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorkRecordSystem.Classes;
+using WorkRecordSystem.Forms;
 
 namespace WorkRecordSystem
 {
@@ -30,7 +31,21 @@ namespace WorkRecordSystem
             {
                 if (user.VerifyPassword(txtPassword.Text.Trim()))
                 {
+                  
+                }
+
+                if (sqlRepo.IsUserAdmin(txtUsername.Text.Trim()) == 1)
+                {
                     var mainForm = new AdminForm(user);
+                    mainForm.Show(this);
+                    txtPassword.Text = "";
+                    txtUsername.Text = "";
+                    Hide();
+                    return;
+                }
+                else
+                {
+                    var mainForm = new EmployeeForm(user);
                     mainForm.Show(this);
                     txtPassword.Text = "";
                     txtUsername.Text = "";
