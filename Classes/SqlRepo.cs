@@ -12,8 +12,6 @@ namespace WorkRecordSystem.Classes
     public class SqlRepo
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=WorkRecordSystemDb;Integrated Security=True;Connect Timeout=30;Encrypt=False";
-
-
         public List<User> GetUsers()
         {
             List<User> users = new List<User>();
@@ -40,8 +38,6 @@ namespace WorkRecordSystem.Classes
             }
             return users;
         }
-
-
         public List<User> GetUsers(string searchString)
         {
             List<User> users = new List<User>();
@@ -68,7 +64,6 @@ namespace WorkRecordSystem.Classes
             }
             return users;
         }
-
         public User? GetUser(string username)
         {
             User? user = null;
@@ -94,9 +89,6 @@ namespace WorkRecordSystem.Classes
             }
             return user;
         }
-
-
-
         public void SaveUser(User user)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -131,6 +123,21 @@ namespace WorkRecordSystem.Classes
                 sqlConnection.Close();
             }
         }
+        public void DeleteUser(string username)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "delete from Users where Name=@Name";
+                    cmd.Parameters.AddWithValue("Name", username);
+                    cmd.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
+        }
+        
         public void ConvertUsersToHashed()
         {
             var users = GetUsers();
@@ -139,7 +146,6 @@ namespace WorkRecordSystem.Classes
                 SaveUser(user);
             }
         }
-   
-
+  
     }
 }

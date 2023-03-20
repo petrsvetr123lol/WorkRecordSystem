@@ -8,6 +8,18 @@ namespace WorkRecordSystem.Classes
 {
     public class Employee
     {
+        public int PersonalNumber { get; set; }
+        public string RoleName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+
+        public Employee()
+        {
+            
+        }
 
     }
 }

@@ -40,7 +40,15 @@
             btnAddUser = new Button();
             btnEditUser = new Button();
             btnDeleteUser = new Button();
+            button1 = new Button();
+            txtSearchUser = new TextBox();
+            label1 = new Label();
+            listView1 = new ListView();
+            textBox2 = new TextBox();
+            label4 = new Label();
+            button2 = new Button();
             workPanel.SuspendLayout();
+            userPanel.SuspendLayout();
             SuspendLayout();
             // 
             // lblUser
@@ -78,7 +86,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(12, 9);
+            label3.Location = new Point(27, 20);
             label3.Name = "label3";
             label3.Size = new Size(165, 32);
             label3.TabIndex = 4;
@@ -87,9 +95,13 @@
             // workPanel
             // 
             workPanel.Controls.Add(listViewUsers);
-            workPanel.Location = new Point(24, 90);
+            workPanel.Controls.Add(button1);
+            workPanel.Controls.Add(btnDeleteUser);
+            workPanel.Controls.Add(btnEditUser);
+            workPanel.Controls.Add(btnAddUser);
+            workPanel.Location = new Point(24, 82);
             workPanel.Name = "workPanel";
-            workPanel.Size = new Size(366, 398);
+            workPanel.Size = new Size(380, 406);
             workPanel.TabIndex = 5;
             // 
             // listViewUsers
@@ -97,10 +109,10 @@
             listViewUsers.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             listViewUsers.FullRowSelect = true;
             listViewUsers.GridLines = true;
-            listViewUsers.Location = new Point(3, 13);
+            listViewUsers.Location = new Point(3, 49);
             listViewUsers.MultiSelect = false;
             listViewUsers.Name = "listViewUsers";
-            listViewUsers.Size = new Size(360, 382);
+            listViewUsers.Size = new Size(249, 346);
             listViewUsers.TabIndex = 0;
             listViewUsers.UseCompatibleStateImageBehavior = false;
             listViewUsers.View = View.Details;
@@ -115,16 +127,20 @@
             // 
             // userPanel
             // 
-            userPanel.Location = new Point(410, 90);
+            userPanel.Controls.Add(button2);
+            userPanel.Controls.Add(label4);
+            userPanel.Controls.Add(textBox2);
+            userPanel.Controls.Add(listView1);
+            userPanel.Location = new Point(410, 82);
             userPanel.Name = "userPanel";
-            userPanel.Size = new Size(366, 398);
+            userPanel.Size = new Size(452, 406);
             userPanel.TabIndex = 6;
             // 
             // btnAddUser
             // 
-            btnAddUser.Location = new Point(27, 61);
+            btnAddUser.Location = new Point(263, 52);
             btnAddUser.Name = "btnAddUser";
-            btnAddUser.Size = new Size(103, 23);
+            btnAddUser.Size = new Size(108, 23);
             btnAddUser.TabIndex = 7;
             btnAddUser.Text = "Přidat uživatele";
             btnAddUser.UseVisualStyleBackColor = true;
@@ -132,30 +148,89 @@
             // 
             // btnEditUser
             // 
-            btnEditUser.Location = new Point(136, 61);
+            btnEditUser.Location = new Point(263, 81);
             btnEditUser.Name = "btnEditUser";
             btnEditUser.Size = new Size(108, 23);
             btnEditUser.TabIndex = 8;
             btnEditUser.Text = "Upravit uživatele";
             btnEditUser.UseVisualStyleBackColor = true;
+            btnEditUser.Click += btnEditUser_Click;
             // 
             // btnDeleteUser
             // 
-            btnDeleteUser.Location = new Point(250, 61);
+            btnDeleteUser.Location = new Point(263, 372);
             btnDeleteUser.Name = "btnDeleteUser";
-            btnDeleteUser.Size = new Size(104, 23);
+            btnDeleteUser.Size = new Size(108, 23);
             btnDeleteUser.TabIndex = 9;
             btnDeleteUser.Text = "Smazat uživatele";
             btnDeleteUser.UseVisualStyleBackColor = true;
+            btnDeleteUser.Click += btnDeleteUser_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(263, 110);
+            button1.Name = "button1";
+            button1.Size = new Size(108, 23);
+            button1.TabIndex = 10;
+            button1.Text = "Změnit heslo";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // txtSearchUser
+            // 
+            txtSearchUser.Location = new Point(153, 95);
+            txtSearchUser.Name = "txtSearchUser";
+            txtSearchUser.Size = new Size(123, 23);
+            txtSearchUser.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(27, 98);
+            label1.Name = "label1";
+            label1.Size = new Size(120, 15);
+            label1.TabIndex = 12;
+            label1.Text = "Vyhledávání uživatele";
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(12, 52);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(338, 343);
+            listView1.TabIndex = 0;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(161, 13);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(119, 23);
+            textBox2.TabIndex = 1;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(12, 16);
+            label4.Name = "label4";
+            label4.Size = new Size(143, 15);
+            label4.TabIndex = 13;
+            label4.Text = "Vyhledávání zaměstnance";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(356, 52);
+            button2.Name = "button2";
+            button2.Size = new Size(85, 23);
+            button2.TabIndex = 14;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
             // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1190, 521);
-            Controls.Add(btnDeleteUser);
-            Controls.Add(btnEditUser);
-            Controls.Add(btnAddUser);
+            Controls.Add(label1);
+            Controls.Add(txtSearchUser);
             Controls.Add(userPanel);
             Controls.Add(workPanel);
             Controls.Add(label3);
@@ -169,6 +244,8 @@
             FormClosed += FormMain_FormClosed;
             Load += AdminForm_Load;
             workPanel.ResumeLayout(false);
+            userPanel.ResumeLayout(false);
+            userPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -187,5 +264,12 @@
         private Button btnAddUser;
         private Button btnEditUser;
         private Button btnDeleteUser;
+        private Button button1;
+        private Button button2;
+        private Label label4;
+        private TextBox textBox2;
+        private ListView listView1;
+        private TextBox txtSearchUser;
+        private Label label1;
     }
 }

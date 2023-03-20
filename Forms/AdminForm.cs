@@ -69,4 +69,25 @@ public partial class AdminForm : Form
             LoadData();
         }
     }
+
+    private void btnDeleteUser_Click(object sender, EventArgs e)
+    {
+        if (listViewUsers.SelectedItems.Count > 0)
+        {
+            if (MessageBox.Show("Opravdu chcete smazat vybraného uživatele?", "Mazání uživatele", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                sqlRepo.DeleteUser(listViewUsers.SelectedItems[0].SubItems[0].Text);
+                LoadData();
+            }
+        }
+        else
+        {
+            MessageBox.Show("Musíte vybrat uživatele ke smazání");
+        }
+    }
+
+    private void btnEditUser_Click(object sender, EventArgs e)
+    {
+
+    }
 }
