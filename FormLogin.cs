@@ -34,7 +34,7 @@ namespace WorkRecordSystem
                   
                 }
 
-                if (sqlRepo.IsUserAdmin(txtUsername.Text.Trim()) == 1)
+                if (user.Role == "admin")
                 {
                     var mainForm = new AdminForm(user);
                     mainForm.Show(this);

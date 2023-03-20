@@ -128,6 +128,7 @@
             btnAddUser.TabIndex = 7;
             btnAddUser.Text = "Přidat uživatele";
             btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.Click += btnAddUser_Click;
             // 
             // btnEditUser
             // 
@@ -166,6 +167,7 @@
             Name = "AdminForm";
             Text = "FormMain";
             FormClosed += FormMain_FormClosed;
+            Load += AdminForm_Load;
             workPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

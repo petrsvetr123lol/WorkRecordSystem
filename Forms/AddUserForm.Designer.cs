@@ -97,6 +97,7 @@
             btnSave.TabIndex = 6;
             btnSave.Text = "Uložit";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
@@ -106,6 +107,7 @@
             btnCancel.TabIndex = 7;
             btnCancel.Text = "Zrušit";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // label4
             // 

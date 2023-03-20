@@ -28,7 +28,7 @@ namespace WorkRecordSystem.Classes
                     {
                         while (reader.Read())
                         {
-                            users.Add(new User(reader["Name"].ToString(), reader["Password"].ToString()));
+                            users.Add(new User((string)reader["Name"], (string)reader["Password"],(string)reader["IsAdmin"]));
                         }
                     }
                 }
@@ -51,7 +51,7 @@ namespace WorkRecordSystem.Classes
                     {
                         if (reader.Read())
                         {
-                            user = new User(reader["Name"].ToString(), reader["Password"].ToString());
+                            user = new User((string)reader["Name"], (string)reader["Password"], (string)reader["IsAdmin"]);
                         }
                     }
                 }
@@ -60,27 +60,27 @@ namespace WorkRecordSystem.Classes
             return user;
         }
 
-       public int IsUserAdmin(string username)
-        {
-            int isAdmin = 0;
-            using(SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                using(SqlCommand cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = "SELECT IsAdmin FROM Users WHERE Name=@username";
-                    cmd.Parameters.AddWithValue ("@username", username);
-                    using(SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            isAdmin = (int)reader["IsAdmin"];
-                        }
-                    }
-                }
-            }
-            return isAdmin; 
-        }
+        //public string IsUserAdmin(string username)
+        //{
+        //    string isAdmin = "";
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        conn.Open();
+        //        using (SqlCommand cmd = conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = "SELECT IsAdmin FROM Users WHERE Name=@username";
+        //            cmd.Parameters.AddWithValue("@username", username);
+        //            using (SqlDataReader reader = cmd.ExecuteReader())
+        //            {
+        //                if (reader.Read())
+        //                {
+        //                    isAdmin = reader["IsAdmin"].ToString();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return isAdmin;
+        //}
 
         public void SaveUser(User user)
         {
@@ -93,6 +93,24 @@ namespace WorkRecordSystem.Classes
                     cmd.Parameters.AddWithValue("Salt", user.PasswordSalt);
                     cmd.Parameters.AddWithValue("Hash", user.PasswordHash);
                     cmd.Parameters.AddWithValue("Name", user.Name);
+                    cmd.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
+        }
+        public void AddUser(User user)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "Insert into Users(Name, PasswordHash, PasswordSalt, IsAdmin) values (@Name,@Hash,@Salt,@Role)";
+                    cmd.Parameters.AddWithValue("Name", user.Name);
+                    cmd.Parameters.AddWithValue("Salt", user.PasswordSalt);
+                    cmd.Parameters.AddWithValue("Hash", user.PasswordHash);
+                    cmd.Parameters.AddWithValue("Role", user.Role);
+
                     cmd.ExecuteNonQuery();
                 }
                 sqlConnection.Close();

@@ -14,16 +14,19 @@ namespace WorkRecordSystem.Classes
         public string Password { get; }
         public byte[] PasswordSalt { get; set; }
         public byte[] PasswordHash { get; set; }
+        public string Role { get; set; }    
+       
+        public User(string name, string password, string role)
+        {
+            Name = name;
+            Role = role;
+            CreatePasswordHash(password);
+        }
         public User(string name, byte[] passwordHash, byte[] passwordSalt)
         {
             Name = name;
             PasswordHash = passwordHash;
             PasswordSalt = passwordSalt;
-        }
-        public User(string name, string password)
-        {
-            Name = name;
-            CreatePasswordHash(password);
         }
         public bool VerifyPassword(string text)
         {
@@ -43,6 +46,12 @@ namespace WorkRecordSystem.Classes
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
         }
+
+        public ListViewItem ToListViewItem()
+        {
+            return new ListViewItem(new string[] {Name, Role});
+        }
+      
     }
 }
 
