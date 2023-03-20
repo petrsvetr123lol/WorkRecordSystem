@@ -13,37 +13,69 @@ namespace WorkRecordSystem.Classes
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=WorkRecordSystemDb;Integrated Security=True;Connect Timeout=30;Encrypt=False";
 
-        Dictionary<string, User> users = new Dictionary<string, User>();
 
         public List<User> GetUsers()
         {
             List<User> users = new List<User>();
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-                conn.Open();
-                using (SqlCommand cmd = conn.CreateCommand())
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
                 {
                     cmd.CommandText = "select * from Users";
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            users.Add(new User((string)reader["Name"], (string)reader["Password"],(string)reader["IsAdmin"]));
+                            var user = new User(reader["Name"].ToString()
+                                             , (byte[])reader["PasswordHash"]
+                                             , (byte[])reader["PasswordSalt"]
+                                             , (string)reader["IsAdmin"]
+                                             ) ;
+                            users.Add(user);
                         }
                     }
                 }
-                conn.Close();
+                sqlConnection.Close();
             }
             return users;
         }
-      
+
+
+        public List<User> GetUsers(string searchString)
+        {
+            List<User> users = new List<User>();
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "select * from Users where Name like @Search";
+                    cmd.Parameters.AddWithValue("Search", "%" + searchString + "%");
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var user = new User(reader["Name"].ToString()
+                                             , (byte[])reader["PasswordHash"]
+                                             , (byte[])reader["PasswordSalt"]
+                                             , (string)reader["IsAdmin"]);
+                            users.Add(user);
+                        }
+                    }
+                }
+                sqlConnection.Close();
+            }
+            return users;
+        }
+
         public User? GetUser(string username)
         {
             User? user = null;
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-                conn.Open();
-                using (SqlCommand cmd = conn.CreateCommand())
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
                 {
                     cmd.CommandText = "select * from Users where Name=@Name";
                     cmd.Parameters.AddWithValue("Name", username);
@@ -51,36 +83,19 @@ namespace WorkRecordSystem.Classes
                     {
                         if (reader.Read())
                         {
-                            user = new User((string)reader["Name"], (string)reader["Password"], (string)reader["IsAdmin"]);
+                            user = new User(reader["Name"].ToString()
+                                , (byte[])reader["PasswordHash"]
+                                , (byte[])reader["PasswordSalt"]
+                                , (string)reader["IsAdmin"]);
                         }
                     }
                 }
-                conn.Close();
+                sqlConnection.Close();
             }
             return user;
         }
 
-        //public string IsUserAdmin(string username)
-        //{
-        //    string isAdmin = "";
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-        //        using (SqlCommand cmd = conn.CreateCommand())
-        //        {
-        //            cmd.CommandText = "SELECT IsAdmin FROM Users WHERE Name=@username";
-        //            cmd.Parameters.AddWithValue("@username", username);
-        //            using (SqlDataReader reader = cmd.ExecuteReader())
-        //            {
-        //                if (reader.Read())
-        //                {
-        //                    isAdmin = reader["IsAdmin"].ToString();
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return isAdmin;
-        //}
+
 
         public void SaveUser(User user)
         {

@@ -11,22 +11,23 @@ namespace WorkRecordSystem.Classes
     public class User
     {
         public string Name { get; }
-        public string Password { get; }
-        public byte[] PasswordSalt { get; set; }
-        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; internal set; }
+        public byte[] PasswordHash { get; internal set; }
         public string Role { get; set; }    
        
+      
+        public User(string name, byte[] passwordHash, byte[] passwordSalt, string role)
+        {
+            Name = name;
+            PasswordHash = passwordHash;
+            PasswordSalt = passwordSalt;
+            Role = role;
+        }
         public User(string name, string password, string role)
         {
             Name = name;
             Role = role;
             CreatePasswordHash(password);
-        }
-        public User(string name, byte[] passwordHash, byte[] passwordSalt)
-        {
-            Name = name;
-            PasswordHash = passwordHash;
-            PasswordSalt = passwordSalt;
         }
         public bool VerifyPassword(string text)
         {

@@ -15,7 +15,6 @@ namespace WorkRecordSystem
     public partial class FormLogin : Form
     {
         SqlRepo sqlRepo;
-        User user;
         public FormLogin()
         {
             InitializeComponent();
@@ -31,7 +30,7 @@ namespace WorkRecordSystem
             {
                 if (user.VerifyPassword(txtPassword.Text.Trim()))
                 {
-                  
+
                 }
 
                 if (user.Role == "admin")

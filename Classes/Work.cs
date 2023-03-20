@@ -8,6 +8,6 @@ namespace WorkRecordSystem.Classes
 {
     public class Work
     {
-
+      
     }
 }
