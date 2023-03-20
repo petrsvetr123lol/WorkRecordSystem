@@ -1,4 +1,5 @@
 using WorkRecordSystem.Classes;
+using WorkRecordSystem.Forms;
 
 namespace WorkRecordSystem;
 
@@ -61,7 +62,11 @@ public partial class AdminForm : Form
 
     private void btnAddUser_Click(object sender, EventArgs e)
     {
-        var mainForm = new Forms.AddUserForm();
-        mainForm.Show(this);
+        AddUserForm addUserForm = new AddUserForm();
+        var result = addUserForm.ShowDialog();
+        if (result == DialogResult.OK)
+        {
+            LoadData();
+        }
     }
 }
