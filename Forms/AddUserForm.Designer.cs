@@ -42,7 +42,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(20, 83);
+            label1.Location = new Point(30, 100);
             label1.Name = "label1";
             label1.Size = new Size(42, 15);
             label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(25, 116);
+            label2.Location = new Point(35, 133);
             label2.Name = "label2";
             label2.Size = new Size(37, 15);
             label2.TabIndex = 1;
@@ -61,29 +61,29 @@
             // 
             comboRole.FormattingEnabled = true;
             comboRole.Items.AddRange(new object[] { "Admin", "Uživatel" });
-            comboRole.Location = new Point(68, 145);
+            comboRole.Location = new Point(78, 165);
             comboRole.Name = "comboRole";
-            comboRole.Size = new Size(140, 23);
+            comboRole.Size = new Size(200, 23);
             comboRole.TabIndex = 2;
             // 
             // txtName
             // 
-            txtName.Location = new Point(68, 75);
+            txtName.Location = new Point(78, 95);
             txtName.Name = "txtName";
-            txtName.Size = new Size(140, 23);
+            txtName.Size = new Size(200, 23);
             txtName.TabIndex = 3;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(68, 108);
+            txtPassword.Location = new Point(78, 128);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(140, 23);
+            txtPassword.Size = new Size(200, 23);
             txtPassword.TabIndex = 4;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(32, 148);
+            label3.Location = new Point(42, 165);
             label3.Name = "label3";
             label3.Size = new Size(30, 15);
             label3.TabIndex = 5;
@@ -91,9 +91,9 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(133, 196);
+            btnSave.Location = new Point(182, 207);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
+            btnSave.Size = new Size(96, 23);
             btnSave.TabIndex = 6;
             btnSave.Text = "Uložit";
             btnSave.UseVisualStyleBackColor = true;
@@ -101,9 +101,9 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(52, 196);
+            btnCancel.Location = new Point(78, 207);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
+            btnCancel.Size = new Size(96, 23);
             btnCancel.TabIndex = 7;
             btnCancel.Text = "Zrušit";
             btnCancel.UseVisualStyleBackColor = true;
@@ -113,17 +113,17 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(52, 18);
+            label4.Location = new Point(12, 27);
             label4.Name = "label4";
-            label4.Size = new Size(144, 32);
+            label4.Size = new Size(297, 32);
             label4.TabIndex = 8;
-            label4.Text = "User dialog";
+            label4.Text = "Přidání nového uživatele";
             // 
             // AddUserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(236, 242);
+            ClientSize = new Size(331, 256);
             Controls.Add(label4);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);

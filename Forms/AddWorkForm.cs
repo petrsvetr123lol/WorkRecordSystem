@@ -16,5 +16,10 @@ namespace WorkRecordSystem.Forms
         {
             InitializeComponent();
         }
+
+        private void AddWorkForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

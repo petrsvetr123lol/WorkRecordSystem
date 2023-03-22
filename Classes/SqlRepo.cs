@@ -105,6 +105,17 @@ namespace WorkRecordSystem.Classes
                 sqlConnection.Close();
             }
         }
+        public void UpdateUser(string username)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open ();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE Users SET Pass";
+                }
+            }
+        }
         public void AddUser(User user)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -137,7 +148,6 @@ namespace WorkRecordSystem.Classes
                 sqlConnection.Close();
             }
         }
-        
         public void ConvertUsersToHashed()
         {
             var users = GetUsers();

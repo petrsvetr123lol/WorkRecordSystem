@@ -82,11 +82,25 @@ public partial class AdminForm : Form
         }
         else
         {
-            MessageBox.Show("Musíte vybrat uživatele ke smazání");
+            MessageBox.Show("Musíte vybrat uživatele ke smazání!");
         }
     }
 
     private void btnEditUser_Click(object sender, EventArgs e)
+    {
+        if(listViewUsers.SelectedItems.Count > 0)
+        {
+            EditUserForm editUserForm = new EditUserForm(listViewUsers.SelectedItems[0].SubItems[0].Text);
+            editUserForm.ShowDialog();
+        }
+        else
+        {
+            MessageBox.Show("Musíte vybrat uživatele k editaci!");
+        }
+          
+    }
+
+    private void button1_Click(object sender, EventArgs e)
     {
 
     }

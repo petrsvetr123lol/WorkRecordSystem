@@ -41,7 +41,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(53, 46);
+            label1.Location = new Point(30, 21);
             label1.Name = "label1";
             label1.Size = new Size(257, 37);
             label1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             // rtxtDescription
             // 
-            rtxtDescription.Location = new Point(44, 203);
+            rtxtDescription.Location = new Point(30, 162);
             rtxtDescription.Name = "rtxtDescription";
             rtxtDescription.Size = new Size(280, 96);
             rtxtDescription.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(121, 129);
+            txtName.Location = new Point(89, 91);
             txtName.Name = "txtName";
             txtName.Size = new Size(203, 23);
             txtName.TabIndex = 2;
@@ -65,7 +65,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(44, 132);
+            label2.Location = new Point(12, 94);
             label2.Name = "label2";
             label2.Size = new Size(71, 15);
             label2.TabIndex = 3;
@@ -74,7 +74,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(44, 174);
+            label3.Location = new Point(30, 144);
             label3.Name = "label3";
             label3.Size = new Size(68, 15);
             label3.TabIndex = 4;
@@ -82,18 +82,18 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(86, 330);
+            btnCancel.Location = new Point(64, 286);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
+            btnCancel.Size = new Size(96, 23);
             btnCancel.TabIndex = 5;
             btnCancel.Text = "Zrušit";
             btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(212, 330);
+            btnSave.Location = new Point(176, 286);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
+            btnSave.Size = new Size(93, 23);
             btnSave.TabIndex = 6;
             btnSave.Text = "Uložit";
             btnSave.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(377, 399);
+            ClientSize = new Size(342, 343);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Controls.Add(label3);
@@ -114,6 +114,7 @@
             MaximizeBox = false;
             Name = "AddWorkForm";
             Text = "AddWorkForm";
+            Load += AddWorkForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
