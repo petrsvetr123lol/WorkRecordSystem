@@ -47,6 +47,10 @@ namespace WorkRecordSystem.Classes
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
         }
+        public void ChangePassword(string password)
+        {
+            CreatePasswordHash(password);
+        }
 
         public ListViewItem ToListViewItem()
         {

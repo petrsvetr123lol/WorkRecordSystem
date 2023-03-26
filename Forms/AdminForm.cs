@@ -52,7 +52,7 @@ public partial class AdminForm : Form
 
     private void lblUser_Click(object sender, EventArgs e)
     {
-
+        LoadData();
     }
 
     private void AdminForm_Load(object sender, EventArgs e)
@@ -88,16 +88,16 @@ public partial class AdminForm : Form
 
     private void btnEditUser_Click(object sender, EventArgs e)
     {
-        if(listViewUsers.SelectedItems.Count > 0)
+        if (listViewUsers.SelectedItems.Count > 0)
         {
-            EditUserForm editUserForm = new EditUserForm(listViewUsers.SelectedItems[0].SubItems[0].Text);
+            EditUserForm editUserForm = new EditUserForm(users[listViewUsers.SelectedIndices[0]]);
             editUserForm.ShowDialog();
         }
         else
         {
             MessageBox.Show("Musíte vybrat uživatele k editaci!");
         }
-          
+
     }
 
     private void button1_Click(object sender, EventArgs e)

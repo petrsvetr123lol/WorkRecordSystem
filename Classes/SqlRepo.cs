@@ -96,15 +96,16 @@ namespace WorkRecordSystem.Classes
                 sqlConnection.Open();
                 using (SqlCommand cmd = sqlConnection.CreateCommand())
                 {
-                    cmd.CommandText = "update Users set PasswordSalt=@Salt, PasswordHash=@Hash where Name=@Name";
+                    cmd.CommandText = "update Users set PasswordSalt=@Salt, PasswordHash=@Hash, IsAdmin=@Admin where Name=@Name";
                     cmd.Parameters.AddWithValue("Salt", user.PasswordSalt);
                     cmd.Parameters.AddWithValue("Hash", user.PasswordHash);
+                    cmd.Parameters.AddWithValue("Admin", user.Role);
                     cmd.Parameters.AddWithValue("Name", user.Name);
                     cmd.ExecuteNonQuery();
                 }
                 sqlConnection.Close();
             }
-        }
+        }              
         public void UpdateUser(string username)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))

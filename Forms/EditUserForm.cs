@@ -7,17 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorkRecordSystem.Forms;
+using WorkRecordSystem.Classes;
 
 namespace WorkRecordSystem.Forms
 {
     public partial class EditUserForm : Form
     {
-        public EditUserForm(string name)
+        private User? user;
+        public EditUserForm(User? user)
         {
-            this.Name = name;
+            this.user = user;
             InitializeComponent();
             txtName.Enabled = false;
-            txtName.Text = name;
+            txtName.Text = user.Name;
+            txtName.ReadOnly = true; 
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -33,7 +37,21 @@ namespace WorkRecordSystem.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            SqlRepo sqlRepository = new SqlRepo();
+            if (user != null)
+            {
+                if (comboRole.SelectedIndex == 0)
+                {
+                    user.Role = "admin";
+                }
+                else
+                {
+                    user.Role = "user";
+                }
+                user.ChangePassword(txtPassword.Text);
+                sqlRepository.SaveUser(user);
+            }
+            DialogResult = DialogResult.OK;
         }
     }
 }
