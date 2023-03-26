@@ -21,7 +21,7 @@ namespace WorkRecordSystem.Forms
             InitializeComponent();
             txtName.Enabled = false;
             txtName.Text = user.Name;
-            txtName.ReadOnly = true; 
+            txtName.ReadOnly = true;
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -40,14 +40,6 @@ namespace WorkRecordSystem.Forms
             SqlRepo sqlRepository = new SqlRepo();
             if (user != null)
             {
-                if (comboRole.SelectedIndex == 0)
-                {
-                    user.Role = "admin";
-                }
-                else
-                {
-                    user.Role = "user";
-                }
                 user.ChangePassword(txtPassword.Text);
                 sqlRepository.SaveUser(user);
             }

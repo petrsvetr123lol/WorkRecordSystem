@@ -44,11 +44,11 @@
             btnAddUser = new Button();
             userPanel = new Panel();
             label9 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnDeleteEmployee = new Button();
+            btnEditEmployee = new Button();
+            btnAddEmployee = new Button();
             label4 = new Label();
-            textBox2 = new TextBox();
+            txtSearchEmployee = new TextBox();
             listViewEmployee = new ListView();
             columnHeader3 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
@@ -169,7 +169,7 @@
             // 
             // columnHeader1
             // 
-            columnHeader1.Text = "Name";
+            columnHeader1.Text = "Jméno";
             columnHeader1.Width = 80;
             // 
             // columnHeader2
@@ -183,6 +183,7 @@
             txtSearchUser.Name = "txtSearchUser";
             txtSearchUser.Size = new Size(94, 23);
             txtSearchUser.TabIndex = 11;
+            txtSearchUser.TextChanged += txtSearchUser_TextChanged;
             // 
             // btnDeleteUser
             // 
@@ -218,11 +219,11 @@
             // 
             userPanel.BackColor = Color.White;
             userPanel.Controls.Add(label9);
-            userPanel.Controls.Add(button1);
-            userPanel.Controls.Add(button2);
-            userPanel.Controls.Add(button3);
+            userPanel.Controls.Add(btnDeleteEmployee);
+            userPanel.Controls.Add(btnEditEmployee);
+            userPanel.Controls.Add(btnAddEmployee);
             userPanel.Controls.Add(label4);
-            userPanel.Controls.Add(textBox2);
+            userPanel.Controls.Add(txtSearchEmployee);
             userPanel.Controls.Add(listViewEmployee);
             userPanel.Location = new Point(276, 182);
             userPanel.Name = "userPanel";
@@ -239,32 +240,34 @@
             label9.TabIndex = 17;
             label9.Text = "Editace zaměstnanců";
             // 
-            // button1
+            // btnDeleteEmployee
             // 
-            button1.Location = new Point(519, 372);
-            button1.Name = "button1";
-            button1.Size = new Size(66, 23);
-            button1.TabIndex = 16;
-            button1.Text = "Smazat";
-            button1.UseVisualStyleBackColor = true;
+            btnDeleteEmployee.Location = new Point(519, 372);
+            btnDeleteEmployee.Name = "btnDeleteEmployee";
+            btnDeleteEmployee.Size = new Size(66, 23);
+            btnDeleteEmployee.TabIndex = 16;
+            btnDeleteEmployee.Text = "Smazat";
+            btnDeleteEmployee.UseVisualStyleBackColor = true;
+            btnDeleteEmployee.Click += btnDeleteEmployee_Click;
             // 
-            // button2
+            // btnEditEmployee
             // 
-            button2.Location = new Point(519, 343);
-            button2.Name = "button2";
-            button2.Size = new Size(66, 23);
-            button2.TabIndex = 15;
-            button2.Text = "Upravit";
-            button2.UseVisualStyleBackColor = true;
+            btnEditEmployee.Location = new Point(519, 343);
+            btnEditEmployee.Name = "btnEditEmployee";
+            btnEditEmployee.Size = new Size(66, 23);
+            btnEditEmployee.TabIndex = 15;
+            btnEditEmployee.Text = "Upravit";
+            btnEditEmployee.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAddEmployee
             // 
-            button3.Location = new Point(519, 314);
-            button3.Name = "button3";
-            button3.Size = new Size(66, 23);
-            button3.TabIndex = 14;
-            button3.Text = "Přidat";
-            button3.UseVisualStyleBackColor = true;
+            btnAddEmployee.Location = new Point(519, 314);
+            btnAddEmployee.Name = "btnAddEmployee";
+            btnAddEmployee.Size = new Size(66, 23);
+            btnAddEmployee.TabIndex = 14;
+            btnAddEmployee.Text = "Přidat";
+            btnAddEmployee.UseVisualStyleBackColor = true;
+            btnAddEmployee.Click += button3_Click;
             // 
             // label4
             // 
@@ -275,12 +278,13 @@
             label4.TabIndex = 13;
             label4.Text = "Vyhledávání zaměstnance";
             // 
-            // textBox2
+            // txtSearchEmployee
             // 
-            textBox2.Location = new Point(161, 49);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(156, 23);
-            textBox2.TabIndex = 1;
+            txtSearchEmployee.Location = new Point(161, 49);
+            txtSearchEmployee.Name = "txtSearchEmployee";
+            txtSearchEmployee.Size = new Size(156, 23);
+            txtSearchEmployee.TabIndex = 1;
+            txtSearchEmployee.TextChanged += txtSearchEmployee_TextChanged;
             // 
             // listViewEmployee
             // 
@@ -297,28 +301,28 @@
             // 
             // columnHeader3
             // 
-            columnHeader3.Text = "Personal Number";
-            columnHeader3.Width = 110;
+            columnHeader3.Text = "OČ";
+            columnHeader3.Width = 30;
             // 
             // columnHeader4
             // 
-            columnHeader4.Text = "RoleName";
-            columnHeader4.Width = 70;
+            columnHeader4.Text = "Pracovní pozice";
+            columnHeader4.Width = 120;
             // 
             // columnHeader5
             // 
-            columnHeader5.Text = "FirstName";
+            columnHeader5.Text = "Jméno";
             columnHeader5.Width = 70;
             // 
             // columnHeader6
             // 
-            columnHeader6.Text = "LastName";
+            columnHeader6.Text = "Přijmení";
             columnHeader6.Width = 70;
             // 
             // columnHeader7
             // 
-            columnHeader7.Text = "BirthDate";
-            columnHeader7.Width = 70;
+            columnHeader7.Text = "Datum narození";
+            columnHeader7.Width = 100;
             // 
             // columnHeader8
             // 
@@ -327,7 +331,7 @@
             // 
             // columnHeader9
             // 
-            columnHeader9.Text = "Phone";
+            columnHeader9.Text = "Telefon";
             // 
             // panel1
             // 
@@ -513,13 +517,13 @@
         private Button btnEditUser;
         private Button btnDeleteUser;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox txtSearchEmployee;
         private ListView listViewEmployee;
         private TextBox txtSearchUser;
         private Label label1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnDeleteEmployee;
+        private Button btnEditEmployee;
+        private Button btnAddEmployee;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;

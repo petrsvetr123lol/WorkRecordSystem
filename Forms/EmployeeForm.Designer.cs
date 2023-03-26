@@ -53,19 +53,19 @@
             columnHeader10 = new ColumnHeader();
             Description = new ColumnHeader();
             panel2 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            label5 = new Label();
-            textBox3 = new TextBox();
+            button1 = new Button();
             textBox4 = new TextBox();
+            textBox3 = new TextBox();
+            label5 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             panel3 = new Panel();
+            button2 = new Button();
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            button1 = new Button();
-            button2 = new Button();
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -283,24 +283,28 @@
             panel2.Size = new Size(325, 179);
             panel2.TabIndex = 15;
             // 
-            // label1
+            // button1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(17, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(109, 21);
-            label1.TabIndex = 16;
-            label1.Text = "Přiradit práci";
+            button1.Location = new Point(53, 140);
+            button1.Name = "button1";
+            button1.Size = new Size(204, 24);
+            button1.TabIndex = 21;
+            button1.Text = "Přiřadit práci";
+            button1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // textBox4
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(23, 68);
-            label2.Name = "label2";
-            label2.Size = new Size(49, 15);
-            label2.TabIndex = 17;
-            label2.Text = "Id práce";
+            textBox4.Location = new Point(110, 90);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(147, 23);
+            textBox4.TabIndex = 20;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(110, 60);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(147, 23);
+            textBox3.TabIndex = 19;
             // 
             // label5
             // 
@@ -311,19 +315,24 @@
             label5.TabIndex = 18;
             label5.Text = "Osobní číslo";
             // 
-            // textBox3
+            // label2
             // 
-            textBox3.Location = new Point(110, 60);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(147, 23);
-            textBox3.TabIndex = 19;
+            label2.AutoSize = true;
+            label2.Location = new Point(23, 68);
+            label2.Name = "label2";
+            label2.Size = new Size(49, 15);
+            label2.TabIndex = 17;
+            label2.Text = "Id práce";
             // 
-            // textBox4
+            // label1
             // 
-            textBox4.Location = new Point(110, 90);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(147, 23);
-            textBox4.TabIndex = 20;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(17, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(109, 21);
+            label1.TabIndex = 16;
+            label1.Text = "Přiradit práci";
             // 
             // panel3
             // 
@@ -333,10 +342,19 @@
             panel3.Controls.Add(label6);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(label8);
-            panel3.Location = new Point(821, 294);
+            panel3.Location = new Point(821, 282);
             panel3.Name = "panel3";
             panel3.Size = new Size(325, 182);
             panel3.TabIndex = 16;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(53, 144);
+            button2.Name = "button2";
+            button2.Size = new Size(204, 24);
+            button2.TabIndex = 22;
+            button2.Text = "Odebrat práci";
+            button2.UseVisualStyleBackColor = true;
             // 
             // textBox5
             // 
@@ -379,24 +397,6 @@
             label8.Size = new Size(114, 21);
             label8.TabIndex = 16;
             label8.Text = "Odebrat práci";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(53, 140);
-            button1.Name = "button1";
-            button1.Size = new Size(204, 24);
-            button1.TabIndex = 21;
-            button1.Text = "Přiřadit práci";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(53, 144);
-            button2.Name = "button2";
-            button2.Size = new Size(204, 24);
-            button2.TabIndex = 22;
-            button2.Text = "Odebrat práci";
-            button2.UseVisualStyleBackColor = true;
             // 
             // EmployeeForm
             // 

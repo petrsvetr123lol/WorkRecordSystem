@@ -34,7 +34,6 @@
             label3 = new Label();
             txtPassword = new TextBox();
             txtName = new TextBox();
-            comboRole = new ComboBox();
             label2 = new Label();
             label1 = new Label();
             SuspendLayout();
@@ -43,15 +42,15 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(64, 19);
+            label4.Location = new Point(86, 27);
             label4.Name = "label4";
-            label4.Size = new Size(207, 32);
+            label4.Size = new Size(157, 32);
             label4.TabIndex = 17;
-            label4.Text = "Editace uživatelů";
+            label4.Text = "Změna hesla";
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(64, 201);
+            btnCancel.Location = new Point(64, 153);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(108, 23);
             btnCancel.TabIndex = 16;
@@ -61,7 +60,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(178, 201);
+            btnSave.Location = new Point(178, 153);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(108, 23);
             btnSave.TabIndex = 15;
@@ -74,9 +73,8 @@
             label3.AutoSize = true;
             label3.Location = new Point(28, 153);
             label3.Name = "label3";
-            label3.Size = new Size(30, 15);
+            label3.Size = new Size(0, 15);
             label3.TabIndex = 14;
-            label3.Text = "Role";
             // 
             // txtPassword
             // 
@@ -92,15 +90,6 @@
             txtName.Size = new Size(222, 23);
             txtName.TabIndex = 12;
             txtName.TextChanged += txtName_TextChanged;
-            // 
-            // comboRole
-            // 
-            comboRole.FormattingEnabled = true;
-            comboRole.Items.AddRange(new object[] { "Admin", "Uživatel" });
-            comboRole.Location = new Point(64, 150);
-            comboRole.Name = "comboRole";
-            comboRole.Size = new Size(222, 23);
-            comboRole.TabIndex = 11;
             // 
             // label2
             // 
@@ -124,14 +113,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(326, 249);
+            ClientSize = new Size(326, 201);
             Controls.Add(label4);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(label3);
             Controls.Add(txtPassword);
             Controls.Add(txtName);
-            Controls.Add(comboRole);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "EditUserForm";
@@ -148,7 +136,6 @@
         private Label label3;
         private TextBox txtPassword;
         private TextBox txtName;
-        private ComboBox comboRole;
         private Label label2;
         private Label label1;
     }

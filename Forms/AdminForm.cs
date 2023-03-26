@@ -1,4 +1,4 @@
-using WorkRecordSystem.Classes;
+Ôªøusing WorkRecordSystem.Classes;
 using WorkRecordSystem.Forms;
 
 namespace WorkRecordSystem;
@@ -10,6 +10,8 @@ public partial class AdminForm : Form
     private Form startupForm;
     private User user;
     private List<User> users;
+    private Employee employee;
+    private List<Employee> employees;
     SqlRepo sqlRepo = new SqlRepo();
     public AdminForm(User user)
     {
@@ -17,6 +19,8 @@ public partial class AdminForm : Form
         this.user = user;
         InitializeComponent();
         lblUser.Text = user.Name;
+        txtSearchUser.Text = "";
+
 
     }
     public void Show(Form startupForm)
@@ -39,9 +43,9 @@ public partial class AdminForm : Form
             startupForm.Close();
         }
     }
-    private void LoadData()
+    private void LoadUsers()
     {
-        users = sqlRepo.GetUsers();
+        users = sqlRepo.GetUsers(searchString: txtSearchUser.Text);
         listViewUsers.Items.Clear();
         foreach (var user in users)
         {
@@ -52,12 +56,13 @@ public partial class AdminForm : Form
 
     private void lblUser_Click(object sender, EventArgs e)
     {
-        LoadData();
+        LoadUsers();
     }
 
     private void AdminForm_Load(object sender, EventArgs e)
     {
-        LoadData();
+        LoadEmployees();
+        LoadUsers();
     }
 
     private void btnAddUser_Click(object sender, EventArgs e)
@@ -66,7 +71,7 @@ public partial class AdminForm : Form
         var result = addUserForm.ShowDialog();
         if (result == DialogResult.OK)
         {
-            LoadData();
+            LoadUsers();
         }
     }
 
@@ -74,15 +79,15 @@ public partial class AdminForm : Form
     {
         if (listViewUsers.SelectedItems.Count > 0)
         {
-            if (MessageBox.Show("Opravdu chcete smazat vybranÈho uûivatele?", "Maz·nÌ uûivatele", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Opravdu chcete smazat vybran√©ho u≈æivatele?", "Maz√°n√≠ u≈æivatele", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 sqlRepo.DeleteUser(listViewUsers.SelectedItems[0].SubItems[0].Text);
-                LoadData();
+                LoadUsers();
             }
         }
         else
         {
-            MessageBox.Show("MusÌte vybrat uûivatele ke smaz·nÌ!");
+            MessageBox.Show("Mus√≠te vybrat u≈æivatele ke smaz√°n√≠!");
         }
     }
 
@@ -95,7 +100,7 @@ public partial class AdminForm : Form
         }
         else
         {
-            MessageBox.Show("MusÌte vybrat uûivatele k editaci!");
+            MessageBox.Show("Mus√≠te vybrat u≈æivatele k editaci!");
         }
 
     }
@@ -103,5 +108,55 @@ public partial class AdminForm : Form
     private void button1_Click(object sender, EventArgs e)
     {
 
+    }
+
+    private void txtSearchUser_TextChanged(object sender, EventArgs e)
+    {
+        LoadUsers();
+    }
+    private void LoadEmployees()
+    {
+        employees = sqlRepo.GetEmployees(searchString: txtSearchEmployee.Text);
+        listViewEmployee.Items.Clear();
+        foreach (var employee in employees)
+        {
+            listViewEmployee.Items.Add(employee.ToListViewItem());
+        }
+
+    }
+    private void LoadWorks()
+    {
+
+    }
+
+    private void txtSearchEmployee_TextChanged(object sender, EventArgs e)
+    {
+        LoadEmployees();
+    }
+
+    private void button3_Click(object sender, EventArgs e)
+    {
+        AddEmployeeForm addEmployeeForm = new AddEmployeeForm();
+        var result = addEmployeeForm.ShowDialog();
+        if (result == DialogResult.OK)
+        {
+            LoadEmployees();
+        }
+    }
+
+    private void btnDeleteEmployee_Click(object sender, EventArgs e)
+    {
+        if (listViewEmployee.SelectedItems.Count > 0)
+        {
+            if (MessageBox.Show("Opravdu chcete smazat vybran√©ho zamƒõstnance?", "Maz√°n√≠ u≈æivatele", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                sqlRepo.DeleteEmployee(Convert.ToInt32(listViewEmployee.SelectedItems[0].SubItems[0].Text));
+                LoadEmployees();
+            }
+        }
+        else
+        {
+            MessageBox.Show("Mus√≠te vybrat u≈æivatele ke smaz√°n√≠!");
+        }
     }
 }

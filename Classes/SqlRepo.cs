@@ -12,6 +12,8 @@ namespace WorkRecordSystem.Classes
     public class SqlRepo
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=WorkRecordSystemDb;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+
+        //user section
         public List<User> GetUsers()
         {
             List<User> users = new List<User>();
@@ -106,17 +108,6 @@ namespace WorkRecordSystem.Classes
                 sqlConnection.Close();
             }
         }              
-        public void UpdateUser(string username)
-        {
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-            {
-                sqlConnection.Open ();
-                using (SqlCommand cmd = sqlConnection.CreateCommand())
-                {
-                    cmd.CommandText = "UPDATE Users SET Pass";
-                }
-            }
-        }
         public void AddUser(User user)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -134,7 +125,7 @@ namespace WorkRecordSystem.Classes
                 }
                 sqlConnection.Close();
             }
-        }
+        }   
         public void DeleteUser(string username)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -157,6 +148,122 @@ namespace WorkRecordSystem.Classes
                 SaveUser(user);
             }
         }
-  
+
+        //employee section
+        public List<Employee> GetEmployees()
+        {
+            List<Employee> employees = new List<Employee>();
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Employee";
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            
+                            var employee = new Employee((int)reader["PersonalNumber"], (string)reader["RoleName"],(string)reader
+                                ["FirstName"], (string)reader["LastName"], DateTime.Parse(reader["BirthDate"].ToString()),
+                                (string)reader["Email"], (string)reader["Phone"]);
+                            employees.Add(employee);
+                        }
+                    }
+                }
+                sqlConnection.Close();
+            }
+            return employees;
+        }
+        public void AddEmployee(Employee employee)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "INSERT INTO Employee(PersonalNumber, RoleName, FirstName, LastName, BirthDate, Email, Phone) " +
+                        "VALUES (@PersonalNumber,@RoleName,@FirstName,@LastName,@BirthDate,@Email,@Phone)";
+                    cmd.Parameters.AddWithValue("PersonalNumber", employee.PersonalNumber);
+                    cmd.Parameters.AddWithValue("RoleName", employee.RoleName);
+                    cmd.Parameters.AddWithValue("FirstName", employee.FirstName);
+                    cmd.Parameters.AddWithValue("LastName", employee.LastName);
+                    cmd.Parameters.AddWithValue("BirthDate", employee.BirthDate);
+                    cmd.Parameters.AddWithValue("Email", employee.Email);
+                    cmd.Parameters.AddWithValue("Phone", employee.PhoneNumber);
+                    cmd.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
+        }
+
+        public void DeleteEmployee(int personalNumber)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Employee WHERE PersonalNumber=@PersonalNumber";
+                    cmd.Parameters.AddWithValue("PersonalNumber", personalNumber);
+                    cmd.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
+        }
+
+        public List<Employee> GetEmployees(string searchString)
+        {
+            List<Employee> employees = new List<Employee>();
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Employee WHERE FirstName LIKE @Search";
+                    cmd.Parameters.AddWithValue("Search", "%" + searchString + "%");
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var employee = new Employee((int)reader["PersonalNumber"], (string)reader["RoleName"], (string)reader
+                                ["FirstName"], (string)reader["LastName"], DateTime.Parse(reader["BirthDate"].ToString()),
+                                (string)reader["Email"], (string)reader["Phone"]);
+                            employees.Add(employee);
+                        }
+                    }
+                }
+                sqlConnection.Close();
+            }
+            return employees;
+        }
+
+        //work section 
+        /*
+        public List<Employee> GetWorks()
+        {
+            List<Employee> employees = new List<Employee>();
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM WorkType";
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var employee = new Employee((string)reader["PersonalNumber"], (string)reader["RoleName"], (string)reader
+                                ["FirstName"], (string)reader["LastName"], DateTime.Parse(reader["BirthDate"].ToString()),
+                                (string)reader["Email"], (string)reader["Phone"]);
+                            employees.Add(employee);
+                        }
+                    }
+                }
+                sqlConnection.Close();
+            }
+            return employees;
+        }
+        */
     }
 }
