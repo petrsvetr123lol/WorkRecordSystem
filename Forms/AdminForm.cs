@@ -159,4 +159,18 @@ public partial class AdminForm : Form
             MessageBox.Show("Musíte vybrat uživatele ke smazání!");
         }
     }
+
+    private void btnEditEmployee_Click(object sender, EventArgs e)
+    {
+        if (listViewEmployee.SelectedItems.Count > 0)
+        {
+            EditEmployee editEmployeeForm = new EditEmployee(employees[listViewEmployee.SelectedIndices[0]]);
+            editEmployeeForm.ShowDialog();
+        }
+        else
+        {
+            MessageBox.Show("Musíte vybrat uživatele k editaci!");
+        }
+        LoadEmployees();
+    }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.VisualBasic.ApplicationServices;
 
 
 namespace WorkRecordSystem.Classes
@@ -236,6 +237,28 @@ namespace WorkRecordSystem.Classes
                 sqlConnection.Close();
             }
             return employees;
+        }
+        public void EditEmployee(Employee employee)
+        {
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE Employee SET RoleName=@RoleName, FirstName=@FirstName, LastName=@LastName, BirthDate=@BirthDate, " +
+                        "Email=@Email,Phone=@Phone WHERE PersonalNumber=@PersonalNumber";
+                    cmd.Parameters.AddWithValue("RoleName", employee.RoleName);
+                    cmd.Parameters.AddWithValue("FirstName", employee.FirstName);
+                    cmd.Parameters.AddWithValue("LastName", employee.LastName);
+                    cmd.Parameters.AddWithValue("BirthDate", employee.BirthDate);
+                    cmd.Parameters.AddWithValue("Email", employee.Email);
+                    cmd.Parameters.AddWithValue("Phone", employee.PhoneNumber);
+                    cmd.Parameters.AddWithValue("PersonalNumber", employee.PersonalNumber);
+                    cmd.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
         }
 
         //work section 

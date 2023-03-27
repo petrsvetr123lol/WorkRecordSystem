@@ -118,6 +118,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FormLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLogin";
             KeyDown += FormLogin_KeyDown;
             ResumeLayout(false);

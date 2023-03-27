@@ -258,6 +258,7 @@
             btnEditEmployee.TabIndex = 15;
             btnEditEmployee.Text = "Upravit";
             btnEditEmployee.UseVisualStyleBackColor = true;
+            btnEditEmployee.Click += btnEditEmployee_Click;
             // 
             // btnAddEmployee
             // 
@@ -465,11 +466,12 @@
             // 
             // columnHeader10
             // 
-            columnHeader10.Text = "Work name";
+            columnHeader10.Text = "Jméno práce";
             columnHeader10.Width = 80;
             // 
             // Description
             // 
+            Description.Text = "Popis práce";
             Description.Width = 180;
             // 
             // AdminForm
