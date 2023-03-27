@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualBasic.ApplicationServices;
-
+using Microsoft.Win32;
 
 namespace WorkRecordSystem.Classes
 {
@@ -262,10 +262,9 @@ namespace WorkRecordSystem.Classes
         }
 
         //work section 
-        /*
-        public List<Employee> GetWorks()
+        public List<Work> GetWorks()
         {
-            List<Employee> employees = new List<Employee>();
+            List<Work> works = new List<Work>();
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
@@ -276,17 +275,61 @@ namespace WorkRecordSystem.Classes
                     {
                         while (reader.Read())
                         {
-                            var employee = new Employee((string)reader["PersonalNumber"], (string)reader["RoleName"], (string)reader
-                                ["FirstName"], (string)reader["LastName"], DateTime.Parse(reader["BirthDate"].ToString()),
-                                (string)reader["Email"], (string)reader["Phone"]);
-                            employees.Add(employee);
+                            var work = new Work((int)reader["WorkTypeId"], reader["Name"].ToString(), reader["Description"].ToString());
+                            works.Add(work);
                         }
                     }
                 }
                 sqlConnection.Close();
             }
-            return employees;
+            return works;
         }
-        */
+        public void AddWork(Work work)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "INSERT INTO WorkType (WorkTypeId, Name, Description) VALUES (@WorkTypeId,@Name,@Description)";
+                    cmd.Parameters.AddWithValue("WorkTypeId", work.WorkId);
+                    cmd.Parameters.AddWithValue("Name", work.Name);
+                    cmd.Parameters.AddWithValue("Description", work.Description);
+                    cmd.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
+        }
+        public void DeleteWork(int workId)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM WorkType WHERE WorkTypeId=@WorkId";
+                    cmd.Parameters.AddWithValue("WorkId", workId);
+                    cmd.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
+        }
+        public void EditWork(Work work)
+        {
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE WorkType SET Name=@Name, Description=@Description WHERE WorkTypeId=@WorkId";
+                    cmd.Parameters.AddWithValue("Name", work.Name);
+                    cmd.Parameters.AddWithValue("Description",work.Description);
+                    cmd.Parameters.AddWithValue("WorkId", work.WorkId);
+                    cmd.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
+        }
     }
 }

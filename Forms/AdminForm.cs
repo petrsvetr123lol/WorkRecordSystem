@@ -12,6 +12,8 @@ public partial class AdminForm : Form
     private List<User> users;
     private Employee employee;
     private List<Employee> employees;
+    private Work work;
+    private List<Work> works;
     SqlRepo sqlRepo = new SqlRepo();
     public AdminForm(User user)
     {
@@ -62,6 +64,7 @@ public partial class AdminForm : Form
     private void AdminForm_Load(object sender, EventArgs e)
     {
         LoadEmployees();
+        LoadWorks();
         LoadUsers();
     }
 
@@ -126,7 +129,12 @@ public partial class AdminForm : Form
     }
     private void LoadWorks()
     {
-
+        works = sqlRepo.GetWorks();
+        listViewWorks.Items.Clear();
+        foreach (var work in works)
+        {
+            listViewWorks.Items.Add(work.ToListViewItem());
+        }
     }
 
     private void txtSearchEmployee_TextChanged(object sender, EventArgs e)
@@ -169,8 +177,48 @@ public partial class AdminForm : Form
         }
         else
         {
-            MessageBox.Show("Musíte vybrat uživatele k editaci!");
+            MessageBox.Show("Musíte vybrat zaměstnance k editaci!");
         }
         LoadEmployees();
+    }
+
+    private void button9_Click(object sender, EventArgs e)
+    {
+        AddWorkForm addWorkForm = new AddWorkForm();
+        var result = addWorkForm.ShowDialog();
+        if (result == DialogResult.OK)
+        {
+            LoadWorks();
+        }
+    }
+
+    private void btnEditWork_Click(object sender, EventArgs e)
+    {
+        if (listViewWorks.SelectedItems.Count > 0)
+        {
+            EditWork editWorkForm = new EditWork(works[listViewWorks.SelectedIndices[0]]);
+            editWorkForm.ShowDialog();
+        }
+        else
+        {
+            MessageBox.Show("Musíte vybrat práci k editaci!");
+        }
+        LoadEmployees();
+    }
+
+    private void btnDeleteWork_Click(object sender, EventArgs e)
+    {
+        if (listViewWorks.SelectedItems.Count > 0)
+        {
+            if (MessageBox.Show("Opravdu chcete smazat vybraného zaměstnance?", "Mazání uživatele", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                sqlRepo.DeleteWork(Convert.ToInt32(listViewWorks.SelectedItems[0].SubItems[0].Text));
+                LoadWorks();
+            }
+        }
+        else
+        {
+            MessageBox.Show("Musíte vybrat uživatele ke smazání!");
+        }
     }
 }

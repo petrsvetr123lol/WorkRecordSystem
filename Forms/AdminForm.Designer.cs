@@ -64,12 +64,12 @@
             label7 = new Label();
             panel4 = new Panel();
             label11 = new Label();
-            textBox1 = new TextBox();
+            txtSearchWork = new TextBox();
             label10 = new Label();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            listView1 = new ListView();
+            btnDeleteWork = new Button();
+            btnEditWork = new Button();
+            btnAddWork = new Button();
+            listViewWorks = new ListView();
             columnHeader10 = new ColumnHeader();
             Description = new ColumnHeader();
             workPanel.SuspendLayout();
@@ -387,12 +387,12 @@
             // panel4
             // 
             panel4.Controls.Add(label11);
-            panel4.Controls.Add(textBox1);
+            panel4.Controls.Add(txtSearchWork);
             panel4.Controls.Add(label10);
-            panel4.Controls.Add(button7);
-            panel4.Controls.Add(button8);
-            panel4.Controls.Add(button9);
-            panel4.Controls.Add(listView1);
+            panel4.Controls.Add(btnDeleteWork);
+            panel4.Controls.Add(btnEditWork);
+            panel4.Controls.Add(btnAddWork);
+            panel4.Controls.Add(listViewWorks);
             panel4.Location = new Point(890, 182);
             panel4.Name = "panel4";
             panel4.Size = new Size(325, 406);
@@ -407,12 +407,12 @@
             label11.TabIndex = 18;
             label11.Text = "Vyhledávání práce";
             // 
-            // textBox1
+            // txtSearchWork
             // 
-            textBox1.Location = new Point(134, 49);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(156, 23);
-            textBox1.TabIndex = 20;
+            txtSearchWork.Location = new Point(134, 49);
+            txtSearchWork.Name = "txtSearchWork";
+            txtSearchWork.Size = new Size(156, 23);
+            txtSearchWork.TabIndex = 20;
             // 
             // label10
             // 
@@ -424,45 +424,48 @@
             label10.TabIndex = 15;
             label10.Text = "Editace práce";
             // 
-            // button7
+            // btnDeleteWork
             // 
-            button7.Location = new Point(236, 372);
-            button7.Name = "button7";
-            button7.Size = new Size(75, 23);
-            button7.TabIndex = 19;
-            button7.Text = "Smazat uživatele";
-            button7.UseVisualStyleBackColor = true;
+            btnDeleteWork.Location = new Point(236, 372);
+            btnDeleteWork.Name = "btnDeleteWork";
+            btnDeleteWork.Size = new Size(75, 23);
+            btnDeleteWork.TabIndex = 19;
+            btnDeleteWork.Text = "Smazat uživatele";
+            btnDeleteWork.UseVisualStyleBackColor = true;
+            btnDeleteWork.Click += btnDeleteWork_Click;
             // 
-            // button8
+            // btnEditWork
             // 
-            button8.Location = new Point(236, 343);
-            button8.Name = "button8";
-            button8.Size = new Size(75, 23);
-            button8.TabIndex = 18;
-            button8.Text = "Upravit uživatele";
-            button8.UseVisualStyleBackColor = true;
+            btnEditWork.Location = new Point(236, 343);
+            btnEditWork.Name = "btnEditWork";
+            btnEditWork.Size = new Size(75, 23);
+            btnEditWork.TabIndex = 18;
+            btnEditWork.Text = "Upravit uživatele";
+            btnEditWork.UseVisualStyleBackColor = true;
+            btnEditWork.Click += btnEditWork_Click;
             // 
-            // button9
+            // btnAddWork
             // 
-            button9.Location = new Point(236, 314);
-            button9.Name = "button9";
-            button9.Size = new Size(75, 23);
-            button9.TabIndex = 17;
-            button9.Text = "Přidat uživatele";
-            button9.UseVisualStyleBackColor = true;
+            btnAddWork.Location = new Point(236, 314);
+            btnAddWork.Name = "btnAddWork";
+            btnAddWork.Size = new Size(75, 23);
+            btnAddWork.TabIndex = 17;
+            btnAddWork.Text = "Přidat uživatele";
+            btnAddWork.UseVisualStyleBackColor = true;
+            btnAddWork.Click += button9_Click;
             // 
-            // listView1
+            // listViewWorks
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader10, Description });
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new Point(12, 81);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Size = new Size(211, 322);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            listViewWorks.Columns.AddRange(new ColumnHeader[] { columnHeader10, Description });
+            listViewWorks.FullRowSelect = true;
+            listViewWorks.GridLines = true;
+            listViewWorks.Location = new Point(12, 81);
+            listViewWorks.MultiSelect = false;
+            listViewWorks.Name = "listViewWorks";
+            listViewWorks.Size = new Size(211, 322);
+            listViewWorks.TabIndex = 0;
+            listViewWorks.UseCompatibleStateImageBehavior = false;
+            listViewWorks.View = View.Details;
             // 
             // columnHeader10
             // 
@@ -539,15 +542,15 @@
         private Panel panel2;
         private Label label7;
         private Panel panel4;
-        private ListView listView1;
+        private ListView listViewWorks;
         private Label label8;
         private Label label9;
         private Label label11;
-        private TextBox textBox1;
+        private TextBox txtSearchWork;
         private Label label10;
-        private Button button7;
-        private Button button8;
-        private Button button9;
+        private Button btnDeleteWork;
+        private Button btnEditWork;
+        private Button btnAddWork;
         private ColumnHeader columnHeader10;
         private ColumnHeader Description;
     }
