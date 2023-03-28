@@ -21,7 +21,7 @@ namespace WorkRecordSystem.Classes
         }
         public ListViewItem ToListViewItem()
         {
-            return new ListViewItem(new string[] { Name, Description});
+            return new ListViewItem(new string[] { WorkId.ToString(), Name, Description});
         }
     }
 }

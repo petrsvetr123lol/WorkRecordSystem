@@ -129,7 +129,7 @@ public partial class AdminForm : Form
     }
     private void LoadWorks()
     {
-        works = sqlRepo.GetWorks();
+        works = sqlRepo.GetWorks(searchString: txtSearchWork.Text);
         listViewWorks.Items.Clear();
         foreach (var work in works)
         {
@@ -203,7 +203,7 @@ public partial class AdminForm : Form
         {
             MessageBox.Show("Musíte vybrat práci k editaci!");
         }
-        LoadEmployees();
+        LoadWorks();
     }
 
     private void btnDeleteWork_Click(object sender, EventArgs e)
@@ -220,5 +220,10 @@ public partial class AdminForm : Form
         {
             MessageBox.Show("Musíte vybrat uživatele ke smazání!");
         }
+    }
+
+    private void txtSearchWork_TextChanged(object sender, EventArgs e)
+    {
+        LoadWorks();
     }
 }

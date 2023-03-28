@@ -331,5 +331,29 @@ namespace WorkRecordSystem.Classes
                 sqlConnection.Close();
             }
         }
+        public List<Work> GetWorks(string searchString)
+        {
+            List<Work> works = new List<Work>();
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM WorkType WHERE Name LIKE @Search";
+                    cmd.Parameters.AddWithValue("Search", "%" + searchString + "%");
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var work = new Work((int)reader["WorkTypeId"], reader["Name"].ToString(), reader["Description"].ToString());
+                            works.Add(work);
+                        }
+                    }
+                }
+                sqlConnection.Close();
+            }
+            return works;
+        }
+
     }
 }

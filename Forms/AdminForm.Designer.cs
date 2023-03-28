@@ -70,6 +70,7 @@
             btnEditWork = new Button();
             btnAddWork = new Button();
             listViewWorks = new ListView();
+            columnHeader11 = new ColumnHeader();
             columnHeader10 = new ColumnHeader();
             Description = new ColumnHeader();
             workPanel.SuspendLayout();
@@ -413,6 +414,7 @@
             txtSearchWork.Name = "txtSearchWork";
             txtSearchWork.Size = new Size(156, 23);
             txtSearchWork.TabIndex = 20;
+            txtSearchWork.TextChanged += txtSearchWork_TextChanged;
             // 
             // label10
             // 
@@ -456,16 +458,21 @@
             // 
             // listViewWorks
             // 
-            listViewWorks.Columns.AddRange(new ColumnHeader[] { columnHeader10, Description });
+            listViewWorks.Columns.AddRange(new ColumnHeader[] { columnHeader11, columnHeader10, Description });
             listViewWorks.FullRowSelect = true;
             listViewWorks.GridLines = true;
-            listViewWorks.Location = new Point(12, 81);
+            listViewWorks.Location = new Point(12, 83);
             listViewWorks.MultiSelect = false;
             listViewWorks.Name = "listViewWorks";
             listViewWorks.Size = new Size(211, 322);
             listViewWorks.TabIndex = 0;
             listViewWorks.UseCompatibleStateImageBehavior = false;
             listViewWorks.View = View.Details;
+            // 
+            // columnHeader11
+            // 
+            columnHeader11.Text = "ID";
+            columnHeader11.Width = 30;
             // 
             // columnHeader10
             // 
@@ -475,7 +482,7 @@
             // Description
             // 
             Description.Text = "Popis práce";
-            Description.Width = 180;
+            Description.Width = 255;
             // 
             // AdminForm
             // 
@@ -553,5 +560,6 @@
         private Button btnAddWork;
         private ColumnHeader columnHeader10;
         private ColumnHeader Description;
+        private ColumnHeader columnHeader11;
     }
 }
