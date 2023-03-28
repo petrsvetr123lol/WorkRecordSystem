@@ -40,7 +40,7 @@ namespace WorkRecordSystem.Forms
             SqlRepo sqlRepository = new SqlRepo();
             if (employee != null)
             {
-                var employee = new Employee(Convert.ToInt32(txtPersonalNumber.Text),txtRole.Text,txtName.Text,txtSurname.Text,bdayPicker.Value,txtEmail.Text,txtPhone.Text);
+                var employee = new Employee(Convert.ToInt32(txtPersonalNumber.Text), txtRole.Text, txtName.Text, txtSurname.Text, bdayPicker.Value, txtEmail.Text, txtPhone.Text);
                 sqlRepository.EditEmployee(employee);
             }
             DialogResult = DialogResult.OK;

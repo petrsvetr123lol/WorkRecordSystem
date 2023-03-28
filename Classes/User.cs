@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Security.Cryptography;
-using System.Reflection.Metadata.Ecma335;
 
 namespace WorkRecordSystem.Classes
 {
@@ -23,7 +18,8 @@ namespace WorkRecordSystem.Classes
             PasswordSalt = passwordSalt;
             Role = role;
         }
-        public User(string name, string password, string role)
+        public 
+            User(string name, string password, string role)
         {
             Name = name;
             Role = role;

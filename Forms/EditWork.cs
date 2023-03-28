@@ -13,11 +13,11 @@ using WorkRecordSystem.Classes;
 namespace WorkRecordSystem.Forms
 {
 
-    public partial class EditWork : Form
+    public partial class EditWorkForm : Form
     {
         private Work work;
         SqlRepo sqlRepo = new SqlRepo();
-        public EditWork(Work work)
+        public EditWorkForm(Work work)
         {
             this.work = work;
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace WorkRecordSystem.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var work = new Work(Convert.ToInt32(txtWorkId.Text), txtName.Text,txtDescription.Text);
+            var work = new Work(Convert.ToInt32(txtWorkId.Text), txtName.Text, txtDescription.Text);
             sqlRepo.EditWork(work);
             DialogResult = DialogResult.OK;
         }

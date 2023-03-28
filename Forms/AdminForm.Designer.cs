@@ -58,10 +58,6 @@
             columnHeader8 = new ColumnHeader();
             columnHeader9 = new ColumnHeader();
             panel1 = new Panel();
-            label5 = new Label();
-            label6 = new Label();
-            panel2 = new Panel();
-            label7 = new Label();
             panel4 = new Panel();
             label11 = new Label();
             txtSearchWork = new TextBox();
@@ -76,7 +72,6 @@
             workPanel.SuspendLayout();
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             panel4.SuspendLayout();
             SuspendLayout();
             // 
@@ -85,7 +80,7 @@
             lblUser.AutoSize = true;
             lblUser.BackColor = SystemColors.Control;
             lblUser.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUser.Location = new Point(1034, 25);
+            lblUser.Location = new Point(1024, 22);
             lblUser.Name = "lblUser";
             lblUser.Size = new Size(58, 20);
             lblUser.TabIndex = 0;
@@ -95,7 +90,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(921, 29);
+            label2.Location = new Point(911, 25);
             label2.Name = "label2";
             label2.Size = new Size(107, 15);
             label2.TabIndex = 1;
@@ -103,7 +98,7 @@
             // 
             // btnLogout
             // 
-            btnLogout.Location = new Point(1114, 22);
+            btnLogout.Location = new Point(1103, 19);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(75, 23);
             btnLogout.TabIndex = 2;
@@ -115,15 +110,16 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(518, 12);
+            label3.Location = new Point(15, 12);
             label3.Name = "label3";
-            label3.Size = new Size(165, 32);
+            label3.Size = new Size(304, 32);
             label3.TabIndex = 4;
-            label3.Text = "Administrace";
+            label3.Text = "WRS Administrační panel";
             // 
             // workPanel
             // 
             workPanel.BackColor = Color.White;
+            workPanel.BorderStyle = BorderStyle.FixedSingle;
             workPanel.Controls.Add(label8);
             workPanel.Controls.Add(label1);
             workPanel.Controls.Add(listViewUsers);
@@ -131,7 +127,7 @@
             workPanel.Controls.Add(btnDeleteUser);
             workPanel.Controls.Add(btnEditUser);
             workPanel.Controls.Add(btnAddUser);
-            workPanel.Location = new Point(12, 182);
+            workPanel.Location = new Point(12, 79);
             workPanel.Name = "workPanel";
             workPanel.Size = new Size(258, 406);
             workPanel.TabIndex = 5;
@@ -219,6 +215,7 @@
             // userPanel
             // 
             userPanel.BackColor = Color.White;
+            userPanel.BorderStyle = BorderStyle.FixedSingle;
             userPanel.Controls.Add(label9);
             userPanel.Controls.Add(btnDeleteEmployee);
             userPanel.Controls.Add(btnEditEmployee);
@@ -226,7 +223,7 @@
             userPanel.Controls.Add(label4);
             userPanel.Controls.Add(txtSearchEmployee);
             userPanel.Controls.Add(listViewEmployee);
-            userPanel.Location = new Point(276, 182);
+            userPanel.Location = new Point(276, 79);
             userPanel.Name = "userPanel";
             userPanel.Size = new Size(596, 406);
             userPanel.TabIndex = 6;
@@ -344,49 +341,12 @@
             panel1.Controls.Add(btnLogout);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1203, 61);
+            panel1.Size = new Size(1191, 61);
             panel1.TabIndex = 7;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(10, 17);
-            label5.Name = "label5";
-            label5.Size = new Size(69, 15);
-            label5.TabIndex = 9;
-            label5.Text = "Počet prací:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(10, 42);
-            label6.Name = "label6";
-            label6.Size = new Size(110, 15);
-            label6.TabIndex = 10;
-            label6.Text = "Počet zaměstnanců";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(label6);
-            panel2.Location = new Point(12, 79);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1203, 97);
-            panel2.TabIndex = 11;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(10, 69);
-            label7.Name = "label7";
-            label7.Size = new Size(201, 15);
-            label7.TabIndex = 11;
-            label7.Text = "Celkový počet odpracovaných hodin";
             // 
             // panel4
             // 
+            panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(label11);
             panel4.Controls.Add(txtSearchWork);
             panel4.Controls.Add(label10);
@@ -394,7 +354,7 @@
             panel4.Controls.Add(btnEditWork);
             panel4.Controls.Add(btnAddWork);
             panel4.Controls.Add(listViewWorks);
-            panel4.Location = new Point(890, 182);
+            panel4.Location = new Point(878, 79);
             panel4.Name = "panel4";
             panel4.Size = new Size(325, 406);
             panel4.TabIndex = 13;
@@ -464,7 +424,7 @@
             listViewWorks.Location = new Point(12, 83);
             listViewWorks.MultiSelect = false;
             listViewWorks.Name = "listViewWorks";
-            listViewWorks.Size = new Size(211, 322);
+            listViewWorks.Size = new Size(211, 312);
             listViewWorks.TabIndex = 0;
             listViewWorks.UseCompatibleStateImageBehavior = false;
             listViewWorks.View = View.Details;
@@ -489,12 +449,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1224, 598);
+            ClientSize = new Size(1212, 495);
             Controls.Add(panel4);
             Controls.Add(panel1);
             Controls.Add(userPanel);
             Controls.Add(workPanel);
-            Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "AdminForm";
@@ -507,8 +466,6 @@
             userPanel.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ResumeLayout(false);
@@ -544,10 +501,6 @@
         private ColumnHeader columnHeader8;
         private ColumnHeader columnHeader9;
         private Panel panel1;
-        private Label label5;
-        private Label label6;
-        private Panel panel2;
-        private Label label7;
         private Panel panel4;
         private ListView listViewWorks;
         private Label label8;

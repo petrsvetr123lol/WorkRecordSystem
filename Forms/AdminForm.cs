@@ -196,7 +196,7 @@ public partial class AdminForm : Form
     {
         if (listViewWorks.SelectedItems.Count > 0)
         {
-            EditWork editWorkForm = new EditWork(works[listViewWorks.SelectedIndices[0]]);
+            EditWorkForm editWorkForm = new EditWorkForm(works[listViewWorks.SelectedIndices[0]]);
             editWorkForm.ShowDialog();
         }
         else
