@@ -1,6 +1,6 @@
 ﻿namespace WorkRecordSystem.Forms
 {
-    partial class EmployeeForm
+    partial class UserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -45,6 +45,7 @@
             columnHeader8 = new ColumnHeader();
             columnHeader9 = new ColumnHeader();
             panel1 = new Panel();
+            btnHourEvidention = new Button();
             panel4 = new Panel();
             label11 = new Label();
             txtSearchWork = new TextBox();
@@ -53,19 +54,30 @@
             columnHeader10 = new ColumnHeader();
             Description = new ColumnHeader();
             panel2 = new Panel();
+            btnDeleteContract = new Button();
+            btnAddContract = new Button();
             label1 = new Label();
             textBox1 = new TextBox();
             label2 = new Label();
             listView1 = new ListView();
-            btnDeleteContract = new Button();
-            btnAddContract = new Button();
             columnHeader11 = new ColumnHeader();
             columnHeader12 = new ColumnHeader();
             columnHeader13 = new ColumnHeader();
+            numericUpDown1 = new NumericUpDown();
+            panel3 = new Panel();
+            label5 = new Label();
+            textBox2 = new TextBox();
+            label6 = new Label();
+            panel5 = new Panel();
+            label7 = new Label();
+            label8 = new Label();
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel3.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // popis
@@ -117,7 +129,7 @@
             userPanel.Controls.Add(label4);
             userPanel.Controls.Add(txtSearchEmployee);
             userPanel.Controls.Add(listViewEmployee);
-            userPanel.Location = new Point(12, 72);
+            userPanel.Location = new Point(12, 139);
             userPanel.Name = "userPanel";
             userPanel.Size = new Size(479, 421);
             userPanel.TabIndex = 7;
@@ -207,6 +219,15 @@
             panel1.Size = new Size(1103, 48);
             panel1.TabIndex = 8;
             // 
+            // btnHourEvidention
+            // 
+            btnHourEvidention.Location = new Point(516, 24);
+            btnHourEvidention.Name = "btnHourEvidention";
+            btnHourEvidention.Size = new Size(208, 23);
+            btnHourEvidention.TabIndex = 22;
+            btnHourEvidention.Text = "Evidovat hodiny";
+            btnHourEvidention.UseVisualStyleBackColor = true;
+            // 
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
@@ -214,7 +235,7 @@
             panel4.Controls.Add(txtSearchWork);
             panel4.Controls.Add(label10);
             panel4.Controls.Add(listViewWorks);
-            panel4.Location = new Point(497, 72);
+            panel4.Location = new Point(497, 139);
             panel4.Name = "panel4";
             panel4.Size = new Size(264, 421);
             panel4.TabIndex = 14;
@@ -278,10 +299,30 @@
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(listView1);
-            panel2.Location = new Point(767, 72);
+            panel2.Location = new Point(767, 139);
             panel2.Name = "panel2";
             panel2.Size = new Size(348, 421);
             panel2.TabIndex = 21;
+            // 
+            // btnDeleteContract
+            // 
+            btnDeleteContract.Location = new Point(264, 381);
+            btnDeleteContract.Name = "btnDeleteContract";
+            btnDeleteContract.Size = new Size(75, 23);
+            btnDeleteContract.TabIndex = 23;
+            btnDeleteContract.Text = "Smazat uživatele";
+            btnDeleteContract.UseVisualStyleBackColor = true;
+            btnDeleteContract.Click += btnDeleteContract_Click;
+            // 
+            // btnAddContract
+            // 
+            btnAddContract.Location = new Point(264, 352);
+            btnAddContract.Name = "btnAddContract";
+            btnAddContract.Size = new Size(75, 23);
+            btnAddContract.TabIndex = 21;
+            btnAddContract.Text = "Přidat uživatele";
+            btnAddContract.UseVisualStyleBackColor = true;
+            btnAddContract.Click += btnAddContract_Click;
             // 
             // label1
             // 
@@ -322,24 +363,6 @@
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
             // 
-            // btnDeleteContract
-            // 
-            btnDeleteContract.Location = new Point(264, 381);
-            btnDeleteContract.Name = "btnDeleteContract";
-            btnDeleteContract.Size = new Size(75, 23);
-            btnDeleteContract.TabIndex = 23;
-            btnDeleteContract.Text = "Smazat uživatele";
-            btnDeleteContract.UseVisualStyleBackColor = true;
-            // 
-            // btnAddContract
-            // 
-            btnAddContract.Location = new Point(264, 352);
-            btnAddContract.Name = "btnAddContract";
-            btnAddContract.Size = new Size(75, 23);
-            btnAddContract.TabIndex = 21;
-            btnAddContract.Text = "Přidat uživatele";
-            btnAddContract.UseVisualStyleBackColor = true;
-            // 
             // columnHeader11
             // 
             columnHeader11.Text = "Název práce";
@@ -355,19 +378,93 @@
             columnHeader13.Text = "Zákazník";
             columnHeader13.Width = 90;
             // 
-            // EmployeeForm
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(89, 24);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(141, 23);
+            numericUpDown1.TabIndex = 22;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(btnHourEvidention);
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(textBox2);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(numericUpDown1);
+            panel3.Location = new Point(12, 66);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(749, 67);
+            panel3.TabIndex = 23;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(12, 28);
+            label5.Name = "label5";
+            label5.Size = new Size(71, 15);
+            label5.TabIndex = 23;
+            label5.Text = "Počet hodin";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(364, 23);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(124, 23);
+            textBox2.TabIndex = 24;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(253, 26);
+            label6.Name = "label6";
+            label6.Size = new Size(105, 15);
+            label6.TabIndex = 25;
+            label6.Text = "Číslo zaměstnance";
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(label8);
+            panel5.Controls.Add(label7);
+            panel5.Location = new Point(767, 66);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(348, 67);
+            panel5.TabIndex = 24;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(37, 28);
+            label7.Name = "label7";
+            label7.Size = new Size(204, 15);
+            label7.TabIndex = 0;
+            label7.Text = "Celkový počet odpracovaných hodin:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(265, 20);
+            label8.Name = "label8";
+            label8.Size = new Size(24, 25);
+            label8.TabIndex = 1;
+            label8.Text = "X";
+            // 
+            // UserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1129, 502);
+            ClientSize = new Size(1129, 572);
             Controls.Add(panel2);
             Controls.Add(panel4);
             Controls.Add(userPanel);
             Controls.Add(panel1);
+            Controls.Add(panel3);
+            Controls.Add(panel5);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "EmployeeForm";
+            Name = "UserForm";
             Text = "UserForm";
             Load += EmployeeForm_Load;
             userPanel.ResumeLayout(false);
@@ -378,6 +475,11 @@
             panel4.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -417,5 +519,14 @@
         private ColumnHeader columnHeader11;
         private ColumnHeader columnHeader12;
         private ColumnHeader columnHeader13;
+        private Button btnHourEvidention;
+        private NumericUpDown numericUpDown1;
+        private Panel panel3;
+        private Label label6;
+        private TextBox textBox2;
+        private Label label5;
+        private Panel panel5;
+        private Label label8;
+        private Label label7;
     }
 }

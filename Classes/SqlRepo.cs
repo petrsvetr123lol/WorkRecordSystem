@@ -345,6 +345,13 @@ namespace WorkRecordSystem.Classes
         }
 
         //contract section
+         
+        public List<Contract> GetContracts()
+        {
+            List<Contract> contracts = new List<Contract>();
 
+            return contracts;
+
+        }
     }
 }

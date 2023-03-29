@@ -44,7 +44,7 @@ namespace WorkRecordSystem
                 }
                 else
                 {
-                    var mainForm = new EmployeeForm(user);
+                    var mainForm = new UserForm(user);
                     mainForm.Show(this);
                     txtPassword.Text = "";
                     txtUsername.Text = "";

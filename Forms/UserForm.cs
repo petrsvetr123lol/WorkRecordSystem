@@ -2,7 +2,7 @@
 
 namespace WorkRecordSystem.Forms
 {
-    public partial class EmployeeForm : Form
+    public partial class UserForm : Form
     {
         private bool closeAll;
         private Employee employee;
@@ -12,7 +12,7 @@ namespace WorkRecordSystem.Forms
         SqlRepo sqlRepo = new SqlRepo();
         private Form startupForm;
         private User user;
-        public EmployeeForm(User user)
+        public UserForm(User user)
         {
             closeAll = true;
             this.user = user;
@@ -54,6 +54,10 @@ namespace WorkRecordSystem.Forms
                 listViewEmployee.Items.Add(employee.ToListViewItem());
             }
         }
+        public void LoadContracts()
+        {
+
+        }
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
@@ -70,5 +74,21 @@ namespace WorkRecordSystem.Forms
         {
             LoadWorks();
         }
+
+        private void btnAddContract_Click(object sender, EventArgs e)
+        {
+            AddContractForm addContractForm = new AddContractForm();
+            var result = addContractForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                LoadContracts();
+            }
+        }
+
+        private void btnDeleteContract_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
