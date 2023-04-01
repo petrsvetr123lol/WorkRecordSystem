@@ -38,8 +38,8 @@
             btnCancel = new Button();
             label4 = new Label();
             panel1 = new Panel();
+            txtPasswordAgain = new TextBox();
             label5 = new Label();
-            textBox1 = new TextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -127,7 +127,7 @@
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(btnCancel);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtPasswordAgain);
             panel1.Controls.Add(btnSave);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label3);
@@ -142,6 +142,13 @@
             panel1.Size = new Size(313, 260);
             panel1.TabIndex = 9;
             // 
+            // txtPasswordAgain
+            // 
+            txtPasswordAgain.Location = new Point(100, 143);
+            txtPasswordAgain.Name = "txtPasswordAgain";
+            txtPasswordAgain.Size = new Size(200, 23);
+            txtPasswordAgain.TabIndex = 10;
+            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -150,13 +157,6 @@
             label5.Size = new Size(72, 15);
             label5.TabIndex = 9;
             label5.Text = "Heslo znovu";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(100, 143);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 23);
-            textBox1.TabIndex = 10;
             // 
             // AddUserForm
             // 
@@ -186,7 +186,7 @@
         private Button btnCancel;
         private Label label4;
         private Panel panel1;
-        private TextBox textBox1;
+        private TextBox txtPasswordAgain;
         private Label label5;
     }
 }

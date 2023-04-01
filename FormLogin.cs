@@ -31,26 +31,26 @@ namespace WorkRecordSystem
                 if (user.VerifyPassword(txtPassword.Text.Trim()))
                 {
 
+                    if (user.Role == "admin")
+                    {
+                        var mainForm = new AdminForm(user);
+                        mainForm.Show(this);
+                        txtPassword.Text = "";
+                        txtUsername.Text = "";
+                        Hide();
+                        return;
+                    }
+                    else
+                    {
+                        var mainForm = new UserForm(user);
+                        mainForm.Show(this);
+                        txtPassword.Text = "";
+                        txtUsername.Text = "";
+                        Hide();
+                        return;
+                    }
                 }
 
-                if (user.Role == "admin")
-                {
-                    var mainForm = new AdminForm(user);
-                    mainForm.Show(this);
-                    txtPassword.Text = "";
-                    txtUsername.Text = "";
-                    Hide();
-                    return;
-                }
-                else
-                {
-                    var mainForm = new UserForm(user);
-                    mainForm.Show(this);
-                    txtPassword.Text = "";
-                    txtUsername.Text = "";
-                    Hide();
-                    return;
-                }
             }
             MessageBox.Show("Uživatelské jméno nebo heslo není správné");
         }

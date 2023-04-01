@@ -37,13 +37,29 @@ namespace WorkRecordSystem.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SqlRepo sqlRepository = new SqlRepo();
-            if (user != null)
+            if(txtName.Text !="" || txtPassword.Text !="" || txtPasswordAgain.Text !="")
             {
-                user.ChangePassword(txtPassword.Text);
-                sqlRepository.SaveUser(user);
+                if(txtPassword.Text == txtPasswordAgain.Text)
+                {
+                    SqlRepo sqlRepository = new SqlRepo();
+                    if (user != null)
+                    {
+                        user.ChangePassword(txtPassword.Text);
+                        sqlRepository.SaveUser(user);
+                    }
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Hesla se neshodují! Zadejte je znovu!");
+                }
             }
-            DialogResult = DialogResult.OK;
+               
+            else
+            {
+                MessageBox.Show("Musíte zadat požadované údaje!");
+            }
+            
         }
     }
 }

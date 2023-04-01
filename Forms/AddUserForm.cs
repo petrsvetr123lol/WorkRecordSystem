@@ -29,20 +29,28 @@ namespace WorkRecordSystem.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "" || txtPassword.Text != "")
+            if (txtName.Text != "" || txtPassword.Text != "" || txtPasswordAgain.Text != "")
             {
-                if (comboRole.SelectedIndex == 0)
+                if (txtPassword.Text == txtPasswordAgain.Text)
                 {
-                    string role = "admin";
-                    user = new User(txtName.Text.Trim(), txtPassword.Text.Trim(), role);
-                    sqlRepo.AddUser(user);
+                    if (comboRole.SelectedIndex == 0)
+                    {
+                        string role = "admin";
+                        user = new User(txtName.Text.Trim(), txtPassword.Text.Trim(), role);
+                        sqlRepo.AddUser(user);
+                    }
+                    else
+                    {
+                        string role = "user";
+                        user = new User(txtName.Text.Trim(), txtPassword.Text.Trim(), role);
+                        sqlRepo.AddUser(user);
+                    }
                 }
                 else
                 {
-                    string role = "user";
-                    user = new User(txtName.Text.Trim(), txtPassword.Text.Trim(), role);
-                    sqlRepo.AddUser(user);
+                    MessageBox.Show("Hesla se neshodují! Zadejte je znovu!");
                 }
+               
 
             }
             else
