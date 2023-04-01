@@ -1,5 +1,6 @@
 ﻿using WorkRecordSystem.Classes;
 using WorkRecordSystem.Forms;
+using System.Collections.Generic;
 
 namespace WorkRecordSystem;
 
@@ -76,6 +77,13 @@ public partial class AdminForm : Form
         LoadUsers();
         LoadContracts();
         timer1.Start();
+
+        lblCountContracts.Text = sqlRepo.ContractCount().ToString();
+        lblCountEmployees.Text = sqlRepo.EmployeeCount().ToString();
+        lblCountUsers.Text = sqlRepo.UsersCount().ToString();
+        lblCountWorks.Text = sqlRepo.WorkCount().ToString();
+        lblSumHours.Text = sqlRepo.NumberOfHours().ToString();
+
     }
 
     private void btnAddUser_Click(object sender, EventArgs e)
@@ -85,6 +93,7 @@ public partial class AdminForm : Form
         if (result == DialogResult.OK)
         {
             LoadUsers();
+            lblCountUsers.Text = sqlRepo.UsersCount().ToString();
         }
     }
 
@@ -168,6 +177,8 @@ public partial class AdminForm : Form
         if (result == DialogResult.OK)
         {
             LoadEmployees();
+            lblCountEmployees.Text = sqlRepo.EmployeeCount().ToString();
+
         }
     }
 
@@ -179,6 +190,7 @@ public partial class AdminForm : Form
             {
                 sqlRepo.DeleteEmployee(Convert.ToInt32(listViewEmployee.SelectedItems[0].SubItems[0].Text));
                 LoadEmployees();
+                lblCountEmployees.Text = sqlRepo.EmployeeCount().ToString();
             }
         }
         else
@@ -199,6 +211,8 @@ public partial class AdminForm : Form
             MessageBox.Show("Musíte vybrat zaměstnance k editaci!");
         }
         LoadEmployees();
+        lblCountEmployees.Text = sqlRepo.EmployeeCount().ToString();
+
     }
 
     private void button9_Click(object sender, EventArgs e)
@@ -208,6 +222,8 @@ public partial class AdminForm : Form
         if (result == DialogResult.OK)
         {
             LoadWorks();
+            lblCountWorks.Text = sqlRepo.WorkCount().ToString();
+
         }
     }
 
@@ -223,6 +239,8 @@ public partial class AdminForm : Form
             MessageBox.Show("Musíte vybrat práci k editaci!");
         }
         LoadWorks();
+        lblCountWorks.Text = sqlRepo.WorkCount().ToString();
+
     }
 
     private void btnDeleteWork_Click(object sender, EventArgs e)
@@ -233,6 +251,8 @@ public partial class AdminForm : Form
             {
                 sqlRepo.DeleteWork(Convert.ToInt32(listViewWorks.SelectedItems[0].SubItems[0].Text));
                 LoadWorks();
+                lblCountWorks.Text = sqlRepo.WorkCount().ToString();
+
             }
         }
         else
@@ -253,6 +273,71 @@ public partial class AdminForm : Form
 
     private void btnExport_Click(object sender, EventArgs e)
     {
+        SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+        saveFileDialog1.Filter = "CSV soubor (*.csv)|*.csv";
+        saveFileDialog1.Title = "Vyberte umístění souboru";
+
+        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+        {
+            string csvFilePath = saveFileDialog1.FileName;
+            using (StreamWriter file = new StreamWriter(csvFilePath))
+            {
+                foreach (var line in contracts)
+                {
+                    file.WriteLine(line.ToString());
+                }
+            }
+        }
+
+       
 
     }
+
+    private void txtContractSearch_TextChanged(object sender, EventArgs e)
+    {
+        LoadContracts();
+    }
+
+    private void btnAddContract_Click(object sender, EventArgs e)
+    {
+        AddContractForm addContractForm = new AddContractForm();
+        var result = addContractForm.ShowDialog();
+        if (result == DialogResult.OK)
+        {
+            LoadContracts();
+            lblSumHours.Text = sqlRepo.NumberOfHours().ToString();
+            lblCountContracts.Text = sqlRepo.ContractCount().ToString();
+
+        }
+    }
+
+    private void btnDeleteContract_Click(object sender, EventArgs e)
+    {
+
+        if (listViewContracts.SelectedItems.Count > 0)
+        {
+            DateTime date = DateTime.Parse(listViewContracts.SelectedItems[0].SubItems[4].Text);
+            if (DateTime.Now.Subtract(date).TotalHours > 24)
+            {
+                MessageBox.Show("Kontrakt není možné smazat, protože je starší více než 24 hodin!");
+            }
+            else
+            {
+                if (MessageBox.Show("Opravdu chcete smazat vybraný kontrakt?", "Mazání kontraktu", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    sqlRepo.DeleteContract(Convert.ToInt32(listViewContracts.SelectedItems[0].SubItems[0].Text));
+                    LoadContracts();
+                    lblSumHours.Text = sqlRepo.NumberOfHours().ToString();
+                    lblCountContracts.Text = sqlRepo.ContractCount().ToString();
+                }
+            }
+
+        }
+        else
+        {
+            MessageBox.Show("Musíte vybrat uživatele ke smazání!");
+        }
+    }
 }
+

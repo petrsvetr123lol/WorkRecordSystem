@@ -441,14 +441,14 @@ namespace WorkRecordSystem.Classes
             }
         }
         //statistic section
-        public int BodyCount()
+        public int EmployeeCount()
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
                 using (SqlCommand cmd = sqlConnection.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT COUNT (*) FROM Employees";
+                    cmd.CommandText = "SELECT COUNT(*) FROM Employee";
                     int rowCount = (int)cmd.ExecuteScalar();
                     sqlConnection.Close();
                     return rowCount;
@@ -466,6 +466,51 @@ namespace WorkRecordSystem.Classes
                 {
                     cmd.CommandText = "SELECT SUM (NumberOfHours) FROM Contract";
                     decimal rowCount = (decimal)cmd.ExecuteScalar();
+                    sqlConnection.Close();
+                    return rowCount;
+
+                }
+            }
+        }
+        public int UsersCount()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT COUNT(*) FROM Users";
+                    int rowCount = (int)cmd.ExecuteScalar();
+                    sqlConnection.Close();
+                    return rowCount;
+
+                }
+            }
+        }
+        public int ContractCount()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT COUNT(*) FROM Contract";
+                    int rowCount = (int)cmd.ExecuteScalar();
+                    sqlConnection.Close();
+                    return rowCount;
+
+                }
+            }
+        }
+        public int WorkCount()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT COUNT(*) FROM WorkType";
+                    int rowCount = (int)cmd.ExecuteScalar();
                     sqlConnection.Close();
                     return rowCount;
 

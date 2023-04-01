@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             popis = new Label();
             btnLogout = new Button();
             label3 = new Label();
@@ -45,6 +46,7 @@
             columnHeader8 = new ColumnHeader();
             columnHeader9 = new ColumnHeader();
             panel1 = new Panel();
+            lblTime = new Label();
             btnHourEvidention = new Button();
             panel4 = new Panel();
             label11 = new Label();
@@ -63,17 +65,18 @@
             listViewContracts = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
-            columnHeader11 = new ColumnHeader();
             columnHeader12 = new ColumnHeader();
             columnHeader13 = new ColumnHeader();
             columnHeader20 = new ColumnHeader();
             columnHeader21 = new ColumnHeader();
             numericUpDownHours = new NumericUpDown();
             panel3 = new Panel();
+            label6 = new Label();
             label5 = new Label();
             panel5 = new Panel();
             txtCount = new Label();
             label7 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -204,7 +207,7 @@
             // columnHeader8
             // 
             columnHeader8.Text = "Email";
-            columnHeader8.Width = 80;
+            columnHeader8.Width = 100;
             // 
             // columnHeader9
             // 
@@ -213,6 +216,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lblTime);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(popis);
             panel1.Controls.Add(lblUser);
@@ -222,9 +226,19 @@
             panel1.Size = new Size(1294, 48);
             panel1.TabIndex = 8;
             // 
+            // lblTime
+            // 
+            lblTime.AutoSize = true;
+            lblTime.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTime.Location = new Point(629, 10);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(84, 30);
+            lblTime.TabIndex = 25;
+            lblTime.Text = "label19";
+            // 
             // btnHourEvidention
             // 
-            btnHourEvidention.Location = new Point(586, 23);
+            btnHourEvidention.Location = new Point(558, 20);
             btnHourEvidention.Name = "btnHourEvidention";
             btnHourEvidention.Size = new Size(138, 23);
             btnHourEvidention.TabIndex = 22;
@@ -315,7 +329,7 @@
             // 
             // btnDeleteContract
             // 
-            btnDeleteContract.Location = new Point(459, 384);
+            btnDeleteContract.Location = new Point(378, 49);
             btnDeleteContract.Name = "btnDeleteContract";
             btnDeleteContract.Size = new Size(75, 23);
             btnDeleteContract.TabIndex = 23;
@@ -325,7 +339,7 @@
             // 
             // btnAddContract
             // 
-            btnAddContract.Location = new Point(459, 355);
+            btnAddContract.Location = new Point(459, 49);
             btnAddContract.Name = "btnAddContract";
             btnAddContract.Size = new Size(75, 23);
             btnAddContract.TabIndex = 21;
@@ -362,13 +376,13 @@
             // 
             // listViewContracts
             // 
-            listViewContracts.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader11, columnHeader12, columnHeader13, columnHeader20, columnHeader21 });
+            listViewContracts.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader12, columnHeader13, columnHeader20, columnHeader21 });
             listViewContracts.FullRowSelect = true;
             listViewContracts.GridLines = true;
             listViewContracts.Location = new Point(12, 81);
             listViewContracts.MultiSelect = false;
             listViewContracts.Name = "listViewContracts";
-            listViewContracts.Size = new Size(441, 322);
+            listViewContracts.Size = new Size(522, 322);
             listViewContracts.TabIndex = 0;
             listViewContracts.UseCompatibleStateImageBehavior = false;
             listViewContracts.View = View.Details;
@@ -381,27 +395,27 @@
             // columnHeader2
             // 
             columnHeader2.Text = "Název práce";
-            // 
-            // columnHeader11
-            // 
-            columnHeader11.Text = "Jméno zaměstnance";
-            columnHeader11.Width = 130;
+            columnHeader2.Width = 90;
             // 
             // columnHeader12
             // 
             columnHeader12.Text = "Příjmení zaměstnance";
+            columnHeader12.Width = 130;
             // 
             // columnHeader13
             // 
             columnHeader13.Text = "Jméno zákazníka";
+            columnHeader13.Width = 100;
             // 
             // columnHeader20
             // 
             columnHeader20.Text = "Datum";
+            columnHeader20.Width = 80;
             // 
             // columnHeader21
             // 
             columnHeader21.Text = "Počet hodin";
+            columnHeader21.Width = 80;
             // 
             // numericUpDownHours
             // 
@@ -412,6 +426,8 @@
             // 
             // panel3
             // 
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(label6);
             panel3.Controls.Add(btnHourEvidention);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(numericUpDownHours);
@@ -420,10 +436,20 @@
             panel3.Size = new Size(749, 67);
             panel3.TabIndex = 23;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(23, 24);
+            label6.Name = "label6";
+            label6.Size = new Size(112, 20);
+            label6.TabIndex = 24;
+            label6.Text = "Evidence práce";
+            // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(343, 27);
+            label5.Location = new Point(358, 28);
             label5.Name = "label5";
             label5.Size = new Size(71, 15);
             label5.TabIndex = 23;
@@ -431,6 +457,7 @@
             // 
             // panel5
             // 
+            panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(txtCount);
             panel5.Controls.Add(label7);
             panel5.Location = new Point(767, 66);
@@ -442,7 +469,7 @@
             // 
             txtCount.AutoSize = true;
             txtCount.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtCount.Location = new Point(265, 20);
+            txtCount.Location = new Point(274, 22);
             txtCount.Name = "txtCount";
             txtCount.Size = new Size(24, 25);
             txtCount.TabIndex = 1;
@@ -456,6 +483,10 @@
             label7.Size = new Size(204, 15);
             label7.TabIndex = 0;
             label7.Text = "Celkový počet odpracovaných hodin:";
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
             // 
             // UserForm
             // 
@@ -532,11 +563,13 @@
         private Label label7;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader11;
         private ColumnHeader columnHeader12;
         private ColumnHeader columnHeader13;
         private ColumnHeader columnHeader20;
         private ColumnHeader columnHeader21;
         private ColumnHeader columnHeader14;
+        private Label label6;
+        private System.Windows.Forms.Timer timer1;
+        private Label lblTime;
     }
 }

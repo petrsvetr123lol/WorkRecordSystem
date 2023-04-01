@@ -1,5 +1,5 @@
 ﻿using WorkRecordSystem.Classes;
-
+using System.IO;
 namespace WorkRecordSystem.Forms
 {
     public partial class UserForm : Form
@@ -69,6 +69,7 @@ namespace WorkRecordSystem.Forms
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
+            timer1.Start();
             LoadWorks();
             LoadEmployees();
             LoadContracts();
@@ -102,7 +103,7 @@ namespace WorkRecordSystem.Forms
 
             if (listViewContracts.SelectedItems.Count > 0)
             {
-                DateTime date = DateTime.Parse(listViewContracts.SelectedItems[0].SubItems[5].Text);
+                DateTime date = DateTime.Parse(listViewContracts.SelectedItems[0].SubItems[4].Text);
                 if (DateTime.Now.Subtract(date).TotalHours > 24)
                 {
                     MessageBox.Show("Kontrakt není možné smazat, protože je starší více než 24 hodin!");
@@ -144,6 +145,11 @@ namespace WorkRecordSystem.Forms
                 MessageBox.Show("Musíte vybrat kontrakt k evidenci hodin");
             }
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

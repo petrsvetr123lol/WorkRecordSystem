@@ -30,7 +30,7 @@
 
         public ListViewItem ToListViewItem()
         {
-            return new ListViewItem(new string[] { ContractId.ToString(), Work,  EmployeeLastName, CustomerName, DateAdded.ToString(), NumberOfHours.ToString() });
+            return new ListViewItem(new string[] { ContractId.ToString(), Work,  EmployeeLastName, CustomerName, DateAdded.ToString("dd.MM.yyyy"), NumberOfHours.ToString() });
         }
 
     }

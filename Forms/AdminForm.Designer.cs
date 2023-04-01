@@ -85,6 +85,11 @@
             columnHeader20 = new ColumnHeader();
             columnHeader21 = new ColumnHeader();
             panel3 = new Panel();
+            lblSumHours = new Label();
+            lblCountWorks = new Label();
+            lblCountContracts = new Label();
+            lblCountEmployees = new Label();
+            lblCountUsers = new Label();
             label18 = new Label();
             label17 = new Label();
             btnExport = new Button();
@@ -166,9 +171,9 @@
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label8.Location = new Point(14, 13);
             label8.Name = "label8";
-            label8.Size = new Size(141, 21);
+            label8.Size = new Size(137, 21);
             label8.TabIndex = 14;
-            label8.Text = "Editace uživatelů";
+            label8.Text = "Správa uživatelů";
             // 
             // label1
             // 
@@ -262,9 +267,9 @@
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label9.Location = new Point(16, 13);
             label9.Name = "label9";
-            label9.Size = new Size(171, 21);
+            label9.Size = new Size(167, 21);
             label9.TabIndex = 17;
-            label9.Text = "Editace zaměstnanců";
+            label9.Text = "Správa zaměstnanců";
             // 
             // btnDeleteEmployee
             // 
@@ -376,9 +381,10 @@
             // lblTime
             // 
             lblTime.AutoSize = true;
-            lblTime.Location = new Point(598, 22);
+            lblTime.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTime.Location = new Point(577, 15);
             lblTime.Name = "lblTime";
-            lblTime.Size = new Size(44, 15);
+            lblTime.Size = new Size(84, 30);
             lblTime.TabIndex = 9;
             lblTime.Text = "label19";
             // 
@@ -420,9 +426,9 @@
             label10.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label10.Location = new Point(12, 13);
             label10.Name = "label10";
-            label10.Size = new Size(112, 21);
+            label10.Size = new Size(108, 21);
             label10.TabIndex = 15;
-            label10.Text = "Editace práce";
+            label10.Text = "Správa práce";
             // 
             // btnDeleteWork
             // 
@@ -504,6 +510,7 @@
             btnDeleteContract.TabIndex = 23;
             btnDeleteContract.Text = "Smazat uživatele";
             btnDeleteContract.UseVisualStyleBackColor = true;
+            btnDeleteContract.Click += btnDeleteContract_Click;
             // 
             // btnAddContract
             // 
@@ -513,6 +520,7 @@
             btnAddContract.TabIndex = 21;
             btnAddContract.Text = "Přidat uživatele";
             btnAddContract.UseVisualStyleBackColor = true;
+            btnAddContract.Click += btnAddContract_Click;
             // 
             // label5
             // 
@@ -529,6 +537,7 @@
             txtContractSearch.Name = "txtContractSearch";
             txtContractSearch.Size = new Size(115, 23);
             txtContractSearch.TabIndex = 20;
+            txtContractSearch.TextChanged += txtContractSearch_TextChanged;
             // 
             // label6
             // 
@@ -536,9 +545,9 @@
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(12, 13);
             label6.Name = "label6";
-            label6.Size = new Size(148, 21);
+            label6.Size = new Size(141, 21);
             label6.TabIndex = 15;
-            label6.Text = "Přehled kontraktů";
+            label6.Text = "Správa kontraktů";
             // 
             // listViewContracts
             // 
@@ -585,6 +594,11 @@
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(lblSumHours);
+            panel3.Controls.Add(lblCountWorks);
+            panel3.Controls.Add(lblCountContracts);
+            panel3.Controls.Add(lblCountEmployees);
+            panel3.Controls.Add(lblCountUsers);
             panel3.Controls.Add(label18);
             panel3.Controls.Add(label17);
             panel3.Controls.Add(btnExport);
@@ -598,6 +612,56 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(438, 406);
             panel3.TabIndex = 23;
+            // 
+            // lblSumHours
+            // 
+            lblSumHours.AutoSize = true;
+            lblSumHours.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSumHours.Location = new Point(266, 200);
+            lblSumHours.Name = "lblSumHours";
+            lblSumHours.Size = new Size(52, 17);
+            lblSumHours.TabIndex = 13;
+            lblSumHours.Text = "label23";
+            // 
+            // lblCountWorks
+            // 
+            lblCountWorks.AutoSize = true;
+            lblCountWorks.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCountWorks.Location = new Point(266, 167);
+            lblCountWorks.Name = "lblCountWorks";
+            lblCountWorks.Size = new Size(52, 17);
+            lblCountWorks.TabIndex = 12;
+            lblCountWorks.Text = "label22";
+            // 
+            // lblCountContracts
+            // 
+            lblCountContracts.AutoSize = true;
+            lblCountContracts.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCountContracts.Location = new Point(266, 129);
+            lblCountContracts.Name = "lblCountContracts";
+            lblCountContracts.Size = new Size(52, 17);
+            lblCountContracts.TabIndex = 11;
+            lblCountContracts.Text = "label21";
+            // 
+            // lblCountEmployees
+            // 
+            lblCountEmployees.AutoSize = true;
+            lblCountEmployees.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCountEmployees.Location = new Point(266, 91);
+            lblCountEmployees.Name = "lblCountEmployees";
+            lblCountEmployees.Size = new Size(52, 17);
+            lblCountEmployees.TabIndex = 10;
+            lblCountEmployees.Text = "label20";
+            // 
+            // lblCountUsers
+            // 
+            lblCountUsers.AutoSize = true;
+            lblCountUsers.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCountUsers.Location = new Point(266, 55);
+            lblCountUsers.Name = "lblCountUsers";
+            lblCountUsers.Size = new Size(52, 17);
+            lblCountUsers.TabIndex = 9;
+            lblCountUsers.Text = "label19";
             // 
             // label18
             // 
@@ -788,5 +852,10 @@
         private Label label12;
         private Label label7;
         private System.Windows.Forms.Timer timer1;
+        private Label lblSumHours;
+        private Label lblCountWorks;
+        private Label lblCountContracts;
+        private Label lblCountEmployees;
+        private Label lblCountUsers;
     }
 }
