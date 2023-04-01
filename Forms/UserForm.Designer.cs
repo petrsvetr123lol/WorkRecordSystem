@@ -59,23 +59,29 @@
             label1 = new Label();
             textBox1 = new TextBox();
             label2 = new Label();
-            listView1 = new ListView();
+            listViewContracts = new ListView();
+            numericUpDownHours = new NumericUpDown();
+            panel3 = new Panel();
+            label12 = new Label();
+            txtContractNumber = new TextBox();
+            label6 = new Label();
+            txtEmployeeNumber = new TextBox();
+            label5 = new Label();
+            panel5 = new Panel();
+            label8 = new Label();
+            label7 = new Label();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             columnHeader11 = new ColumnHeader();
             columnHeader12 = new ColumnHeader();
             columnHeader13 = new ColumnHeader();
-            numericUpDown1 = new NumericUpDown();
-            panel3 = new Panel();
-            label5 = new Label();
-            textBox2 = new TextBox();
-            label6 = new Label();
-            panel5 = new Panel();
-            label7 = new Label();
-            label8 = new Label();
+            columnHeader20 = new ColumnHeader();
+            columnHeader21 = new ColumnHeader();
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownHours).BeginInit();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
             SuspendLayout();
@@ -83,7 +89,7 @@
             // popis
             // 
             popis.AutoSize = true;
-            popis.Location = new Point(835, 22);
+            popis.Location = new Point(1030, 22);
             popis.Name = "popis";
             popis.Size = new Size(104, 15);
             popis.TabIndex = 0;
@@ -91,7 +97,7 @@
             // 
             // btnLogout
             // 
-            btnLogout.Location = new Point(1020, 15);
+            btnLogout.Location = new Point(1215, 15);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(75, 23);
             btnLogout.TabIndex = 1;
@@ -114,7 +120,7 @@
             lblUser.AutoSize = true;
             lblUser.BackColor = SystemColors.Control;
             lblUser.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUser.Location = new Point(945, 18);
+            lblUser.Location = new Point(1140, 18);
             lblUser.Name = "lblUser";
             lblUser.Size = new Size(51, 20);
             lblUser.TabIndex = 6;
@@ -169,7 +175,7 @@
             listViewEmployee.Location = new Point(12, 81);
             listViewEmployee.MultiSelect = false;
             listViewEmployee.Name = "listViewEmployee";
-            listViewEmployee.Size = new Size(455, 327);
+            listViewEmployee.Size = new Size(455, 323);
             listViewEmployee.TabIndex = 0;
             listViewEmployee.UseCompatibleStateImageBehavior = false;
             listViewEmployee.View = View.Details;
@@ -216,14 +222,14 @@
             panel1.Controls.Add(btnLogout);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1103, 48);
+            panel1.Size = new Size(1294, 48);
             panel1.TabIndex = 8;
             // 
             // btnHourEvidention
             // 
-            btnHourEvidention.Location = new Point(516, 24);
+            btnHourEvidention.Location = new Point(620, 24);
             btnHourEvidention.Name = "btnHourEvidention";
-            btnHourEvidention.Size = new Size(208, 23);
+            btnHourEvidention.Size = new Size(104, 23);
             btnHourEvidention.TabIndex = 22;
             btnHourEvidention.Text = "Evidovat hodiny";
             btnHourEvidention.UseVisualStyleBackColor = true;
@@ -298,15 +304,15 @@
             panel2.Controls.Add(label1);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label2);
-            panel2.Controls.Add(listView1);
+            panel2.Controls.Add(listViewContracts);
             panel2.Location = new Point(767, 139);
             panel2.Name = "panel2";
-            panel2.Size = new Size(348, 421);
+            panel2.Size = new Size(539, 421);
             panel2.TabIndex = 21;
             // 
             // btnDeleteContract
             // 
-            btnDeleteContract.Location = new Point(264, 381);
+            btnDeleteContract.Location = new Point(459, 384);
             btnDeleteContract.Name = "btnDeleteContract";
             btnDeleteContract.Size = new Size(75, 23);
             btnDeleteContract.TabIndex = 23;
@@ -316,7 +322,7 @@
             // 
             // btnAddContract
             // 
-            btnAddContract.Location = new Point(264, 352);
+            btnAddContract.Location = new Point(459, 355);
             btnAddContract.Name = "btnAddContract";
             btnAddContract.Size = new Size(75, 23);
             btnAddContract.TabIndex = 21;
@@ -350,77 +356,80 @@
             label2.TabIndex = 15;
             label2.Text = "Přehled kontraktů";
             // 
-            // listView1
+            // listViewContracts
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader11, columnHeader12, columnHeader13 });
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new Point(12, 81);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Size = new Size(246, 322);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            listViewContracts.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader11, columnHeader12, columnHeader13, columnHeader20, columnHeader21 });
+            listViewContracts.FullRowSelect = true;
+            listViewContracts.GridLines = true;
+            listViewContracts.Location = new Point(12, 81);
+            listViewContracts.MultiSelect = false;
+            listViewContracts.Name = "listViewContracts";
+            listViewContracts.Size = new Size(441, 322);
+            listViewContracts.TabIndex = 0;
+            listViewContracts.UseCompatibleStateImageBehavior = false;
+            listViewContracts.View = View.Details;
             // 
-            // columnHeader11
+            // numericUpDownHours
             // 
-            columnHeader11.Text = "Název práce";
-            columnHeader11.Width = 80;
-            // 
-            // columnHeader12
-            // 
-            columnHeader12.Text = "Zaměstnanec";
-            columnHeader12.Width = 90;
-            // 
-            // columnHeader13
-            // 
-            columnHeader13.Text = "Zákazník";
-            columnHeader13.Width = 90;
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(89, 24);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(141, 23);
-            numericUpDown1.TabIndex = 22;
+            numericUpDownHours.Location = new Point(485, 22);
+            numericUpDownHours.Name = "numericUpDownHours";
+            numericUpDownHours.Size = new Size(83, 23);
+            numericUpDownHours.TabIndex = 22;
             // 
             // panel3
             // 
+            panel3.Controls.Add(label12);
+            panel3.Controls.Add(txtContractNumber);
             panel3.Controls.Add(btnHourEvidention);
             panel3.Controls.Add(label6);
-            panel3.Controls.Add(textBox2);
+            panel3.Controls.Add(txtEmployeeNumber);
             panel3.Controls.Add(label5);
-            panel3.Controls.Add(numericUpDown1);
+            panel3.Controls.Add(numericUpDownHours);
             panel3.Location = new Point(12, 66);
             panel3.Name = "panel3";
             panel3.Size = new Size(749, 67);
             panel3.TabIndex = 23;
             // 
-            // label5
+            // label12
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(12, 28);
-            label5.Name = "label5";
-            label5.Size = new Size(71, 15);
-            label5.TabIndex = 23;
-            label5.Text = "Počet hodin";
+            label12.AutoSize = true;
+            label12.Location = new Point(12, 28);
+            label12.Name = "label12";
+            label12.Size = new Size(87, 15);
+            label12.TabIndex = 27;
+            label12.Text = "Číslo kontraktu";
             // 
-            // textBox2
+            // txtContractNumber
             // 
-            textBox2.Location = new Point(364, 23);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(124, 23);
-            textBox2.TabIndex = 24;
+            txtContractNumber.Location = new Point(98, 21);
+            txtContractNumber.Name = "txtContractNumber";
+            txtContractNumber.Size = new Size(58, 23);
+            txtContractNumber.TabIndex = 26;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(253, 26);
+            label6.Location = new Point(185, 24);
             label6.Name = "label6";
             label6.Size = new Size(105, 15);
             label6.TabIndex = 25;
             label6.Text = "Číslo zaměstnance";
+            // 
+            // txtEmployeeNumber
+            // 
+            txtEmployeeNumber.Location = new Point(296, 20);
+            txtEmployeeNumber.Name = "txtEmployeeNumber";
+            txtEmployeeNumber.Size = new Size(70, 23);
+            txtEmployeeNumber.TabIndex = 24;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(408, 24);
+            label5.Name = "label5";
+            label5.Size = new Size(71, 15);
+            label5.TabIndex = 23;
+            label5.Text = "Počet hodin";
             // 
             // panel5
             // 
@@ -428,17 +437,8 @@
             panel5.Controls.Add(label7);
             panel5.Location = new Point(767, 66);
             panel5.Name = "panel5";
-            panel5.Size = new Size(348, 67);
+            panel5.Size = new Size(539, 67);
             panel5.TabIndex = 24;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(37, 28);
-            label7.Name = "label7";
-            label7.Size = new Size(204, 15);
-            label7.TabIndex = 0;
-            label7.Text = "Celkový počet odpracovaných hodin:";
             // 
             // label8
             // 
@@ -450,12 +450,51 @@
             label8.TabIndex = 1;
             label8.Text = "X";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(37, 28);
+            label7.Name = "label7";
+            label7.Size = new Size(204, 15);
+            label7.TabIndex = 0;
+            label7.Text = "Celkový počet odpracovaných hodin:";
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "ID";
+            columnHeader1.Width = 30;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Název práce";
+            // 
+            // columnHeader11
+            // 
+            columnHeader11.Text = "Jméno zaměstnance";
+            columnHeader11.Width = 130;
+            // 
+            // columnHeader12
+            // 
+            columnHeader12.Text = "Příjmení zaměstnance";
+            // 
+            // columnHeader13
+            // 
+            columnHeader13.Text = "Jméno zákazníka";
+            // 
+            // columnHeader20
+            // 
+            columnHeader20.Text = "Datum";
+            // 
+            // columnHeader21
+            // 
+            columnHeader21.Text = "Počet hodin";
+            // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1129, 572);
+            ClientSize = new Size(1318, 572);
             Controls.Add(panel2);
             Controls.Add(panel4);
             Controls.Add(userPanel);
@@ -475,7 +514,7 @@
             panel4.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownHours).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
@@ -513,20 +552,26 @@
         private Label label1;
         private TextBox textBox1;
         private Label label2;
-        private ListView listView1;
+        private ListView listViewContracts;
         private Button btnDeleteContract;
         private Button btnAddContract;
-        private ColumnHeader columnHeader11;
-        private ColumnHeader columnHeader12;
-        private ColumnHeader columnHeader13;
         private Button btnHourEvidention;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDownHours;
         private Panel panel3;
         private Label label6;
-        private TextBox textBox2;
+        private TextBox txtEmployeeNumber;
         private Label label5;
         private Panel panel5;
         private Label label8;
         private Label label7;
+        private Label label12;
+        private TextBox txtContractNumber;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader11;
+        private ColumnHeader columnHeader12;
+        private ColumnHeader columnHeader13;
+        private ColumnHeader columnHeader20;
+        private ColumnHeader columnHeader21;
     }
 }

@@ -9,6 +9,8 @@ namespace WorkRecordSystem.Forms
         private List<Employee> employees;
         private Work work;
         private List<Work> works;
+        private Contract contract;
+        private List<Contract> contracts;
         SqlRepo sqlRepo = new SqlRepo();
         private Form startupForm;
         private User user;
@@ -56,13 +58,19 @@ namespace WorkRecordSystem.Forms
         }
         public void LoadContracts()
         {
-
+            contracts = sqlRepo.GetContracts();
+            listViewContracts.Items.Clear();
+            foreach (var contract in contracts)
+            {
+                listViewContracts.Items.Add(contract.ToListViewItem());
+            }
         }
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
             LoadWorks();
             LoadEmployees();
+            LoadContracts();
         }
 
         private void txtSearchEmployee_TextChanged(object sender, EventArgs e)

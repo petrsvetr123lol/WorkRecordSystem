@@ -349,9 +349,27 @@ namespace WorkRecordSystem.Classes
         public List<Contract> GetContracts()
         {
             List<Contract> contracts = new List<Contract>();
-
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT Contract.ContractNumber,WorkType.Name, Employee.FirstName, Employee.LastName, Contract.CustomerName, Contract.DateAdded ,Contract.NumberOfHours FROM Contract JOIN Employee ON Contract.Employee = Employee.PersonalNumber JOIN WorkType ON Contract.WorkType = WorkType.WorkTypeId;";
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var contract = new Contract((int)reader["ContractNumber"], reader["Name"].ToString(),
+                                reader["FirstName"].ToString(), reader["LastName"].ToString(), reader["CustomerName"].ToString(),
+                                DateTime.Parse(reader["DateAdded"].ToString()), (int)reader["NumberOfHours"]);
+                            contracts.Add(contract);
+                        }
+                    }
+                }
+                sqlConnection.Close();
+            }
             return contracts;
-
         }
+       
     }
 }
