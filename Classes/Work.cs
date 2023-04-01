@@ -14,7 +14,7 @@
         }
         public ListViewItem ToListViewItem()
         {
-            return new ListViewItem(new string[] { WorkId.ToString(), Name, Description});
+            return new ListViewItem(new string[] { WorkId.ToString(), Name, Description });
         }
     }
 }

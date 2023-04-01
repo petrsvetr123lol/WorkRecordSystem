@@ -147,6 +147,7 @@
             MaximizeBox = false;
             Name = "AddContractForm";
             Text = "AddContract";
+            Load += AddContractForm_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);

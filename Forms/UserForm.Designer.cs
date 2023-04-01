@@ -53,6 +53,7 @@
             listViewWorks = new ListView();
             columnHeader10 = new ColumnHeader();
             Description = new ColumnHeader();
+            columnHeader14 = new ColumnHeader();
             panel2 = new Panel();
             btnDeleteContract = new Button();
             btnAddContract = new Button();
@@ -272,7 +273,7 @@
             // 
             // listViewWorks
             // 
-            listViewWorks.Columns.AddRange(new ColumnHeader[] { columnHeader10, Description });
+            listViewWorks.Columns.AddRange(new ColumnHeader[] { columnHeader10, Description, columnHeader14 });
             listViewWorks.FullRowSelect = true;
             listViewWorks.GridLines = true;
             listViewWorks.Location = new Point(12, 81);
@@ -285,13 +286,18 @@
             // 
             // columnHeader10
             // 
-            columnHeader10.Text = "Název práce";
-            columnHeader10.Width = 80;
+            columnHeader10.Text = "ID";
+            columnHeader10.Width = 30;
             // 
             // Description
             // 
-            Description.Text = "Popis práce";
-            Description.Width = 180;
+            Description.Text = "Název práce";
+            Description.Width = 90;
+            // 
+            // columnHeader14
+            // 
+            columnHeader14.Text = "Popis práce";
+            columnHeader14.Width = 120;
             // 
             // panel2
             // 
@@ -531,5 +537,6 @@
         private ColumnHeader columnHeader13;
         private ColumnHeader columnHeader20;
         private ColumnHeader columnHeader21;
+        private ColumnHeader columnHeader14;
     }
 }

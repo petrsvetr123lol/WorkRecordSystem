@@ -8,9 +8,9 @@ namespace WorkRecordSystem.Classes
         public string Name { get; }
         public byte[] PasswordSalt { get; internal set; }
         public byte[] PasswordHash { get; internal set; }
-        public string Role { get; set; }    
-       
-      
+        public string Role { get; set; }
+
+
         public User(string name, byte[] passwordHash, byte[] passwordSalt, string role)
         {
             Name = name;
@@ -33,7 +33,7 @@ namespace WorkRecordSystem.Classes
             }
             return hash.SequenceEqual(PasswordHash);
         }
-       
+
         public void CreatePasswordHash(string password)
         {
             using (var hmac = new HMACSHA512())
@@ -49,9 +49,9 @@ namespace WorkRecordSystem.Classes
 
         public ListViewItem ToListViewItem()
         {
-            return new ListViewItem(new string[] {Name, Role});
+            return new ListViewItem(new string[] { Name, Role });
         }
-      
+
     }
 }
 

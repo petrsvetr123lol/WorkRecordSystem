@@ -12,7 +12,7 @@
 
         public Employee(int pNumber, string rName, string fName, string lName, DateTime bDate, string email, string phoneNumber)
         {
-            PersonalNumber = pNumber;  
+            PersonalNumber = pNumber;
             RoleName = rName;
             FirstName = fName;
             LastName = lName;
@@ -22,7 +22,7 @@
         }
         public ListViewItem ToListViewItem()
         {
-            return new ListViewItem(new string[] { PersonalNumber.ToString(),RoleName,FirstName,LastName, BirthDate.Date.ToString(),Email,PhoneNumber  });
+            return new ListViewItem(new string[] { PersonalNumber.ToString(), RoleName, FirstName, LastName, BirthDate.Date.ToString("dd.MM.yyyy"), Email, PhoneNumber });
         }
 
     }

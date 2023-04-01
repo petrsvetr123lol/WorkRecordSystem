@@ -7,7 +7,7 @@ namespace WorkRecordSystem.Forms
         private Contract? contract;
         public AddContractForm()
         {
-            
+
             InitializeComponent();
         }
 
@@ -19,7 +19,7 @@ namespace WorkRecordSystem.Forms
 
         private void btnCreateContract_Click(object sender, EventArgs e)
         {
-            if(txtCustomer.Text != "" || txtEmployeeId.Text != "" || txtWorkId.Text != "")
+            if (txtCustomer.Text != "" || txtEmployeeId.Text != "" || txtWorkId.Text != "")
             {
                 Contract contract = new Contract(Convert.ToInt32(txtEmployeeId.Text), Convert.ToInt32(txtWorkId.Text), txtCustomer.Text);
                 sqlRepo.AddContract(contract);
@@ -29,7 +29,12 @@ namespace WorkRecordSystem.Forms
                 MessageBox.Show("Musíte zadat požadované hodnoty!");
             }
             DialogResult = DialogResult.OK;
-        ;
+            ;
+        }
+
+        private void AddContractForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

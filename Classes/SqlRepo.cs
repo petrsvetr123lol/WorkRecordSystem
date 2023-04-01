@@ -23,7 +23,7 @@ namespace WorkRecordSystem.Classes
                                              , (byte[])reader["PasswordHash"]
                                              , (byte[])reader["PasswordSalt"]
                                              , (string)reader["IsAdmin"]
-                                             ) ;
+                                             );
                             users.Add(user);
                         }
                     }
@@ -99,7 +99,7 @@ namespace WorkRecordSystem.Classes
                 }
                 sqlConnection.Close();
             }
-        }              
+        }
         public void AddUser(User user)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -117,7 +117,7 @@ namespace WorkRecordSystem.Classes
                 }
                 sqlConnection.Close();
             }
-        }   
+        }
         public void DeleteUser(string username)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -155,8 +155,8 @@ namespace WorkRecordSystem.Classes
                     {
                         while (reader.Read())
                         {
-                            
-                            var employee = new Employee((int)reader["PersonalNumber"], (string)reader["RoleName"],(string)reader
+
+                            var employee = new Employee((int)reader["PersonalNumber"], (string)reader["RoleName"], (string)reader
                                 ["FirstName"], (string)reader["LastName"], DateTime.Parse(reader["BirthDate"].ToString()),
                                 (string)reader["Email"], (string)reader["Phone"]);
                             employees.Add(employee);
@@ -313,7 +313,7 @@ namespace WorkRecordSystem.Classes
                 {
                     cmd.CommandText = "UPDATE WorkType SET Name=@Name, Description=@Description WHERE WorkTypeId=@WorkId";
                     cmd.Parameters.AddWithValue("Name", work.Name);
-                    cmd.Parameters.AddWithValue("Description",work.Description);
+                    cmd.Parameters.AddWithValue("Description", work.Description);
                     cmd.Parameters.AddWithValue("WorkId", work.WorkId);
                     cmd.ExecuteNonQuery();
                 }
@@ -345,7 +345,7 @@ namespace WorkRecordSystem.Classes
         }
 
         //contract section
-         
+
         public List<Contract> GetContracts()
         {
             List<Contract> contracts = new List<Contract>();
@@ -360,7 +360,7 @@ namespace WorkRecordSystem.Classes
                         while (reader.Read())
                         {
                             var contract = new Contract((int)reader["ContractNumber"], reader["Name"].ToString(),
-                                reader["FirstName"].ToString(), reader["LastName"].ToString(), reader["CustomerName"].ToString(),
+                                reader["LastName"].ToString(), reader["CustomerName"].ToString(),
                                 DateTime.Parse(reader["DateAdded"].ToString()), (int)reader["NumberOfHours"]);
                             contracts.Add(contract);
                         }
@@ -415,7 +415,7 @@ namespace WorkRecordSystem.Classes
                         while (reader.Read())
                         {
                             var contract = new Contract((int)reader["ContractNumber"], reader["Name"].ToString(),
-                                reader["FirstName"].ToString(), reader["LastName"].ToString(), reader["CustomerName"].ToString(),
+                                reader["LastName"].ToString(), reader["CustomerName"].ToString(),
                                 DateTime.Parse(reader["DateAdded"].ToString()), (decimal)reader["NumberOfHours"]);
                             contracts.Add(contract);
                         }
@@ -455,7 +455,7 @@ namespace WorkRecordSystem.Classes
 
                 }
             }
-           
+
         }
         public decimal NumberOfHours()
         {

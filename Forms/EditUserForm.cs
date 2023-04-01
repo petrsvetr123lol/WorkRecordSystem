@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using WorkRecordSystem.Forms;
-using WorkRecordSystem.Classes;
+﻿using WorkRecordSystem.Classes;
 
 namespace WorkRecordSystem.Forms
 {
@@ -37,9 +27,9 @@ namespace WorkRecordSystem.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtName.Text !="" || txtPassword.Text !="" || txtPasswordAgain.Text !="")
+            if (txtName.Text != "" || txtPassword.Text != "" || txtPasswordAgain.Text != "")
             {
-                if(txtPassword.Text == txtPasswordAgain.Text)
+                if (txtPassword.Text == txtPasswordAgain.Text)
                 {
                     SqlRepo sqlRepository = new SqlRepo();
                     if (user != null)
@@ -54,12 +44,10 @@ namespace WorkRecordSystem.Forms
                     MessageBox.Show("Hesla se neshodují! Zadejte je znovu!");
                 }
             }
-               
             else
             {
                 MessageBox.Show("Musíte zadat požadované údaje!");
             }
-            
         }
     }
 }

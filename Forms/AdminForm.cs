@@ -14,6 +14,8 @@ public partial class AdminForm : Form
     private List<Employee> employees;
     private Work work;
     private List<Work> works;
+    private Contract contract;
+    private List<Contract> contracts;
     SqlRepo sqlRepo = new SqlRepo();
     public AdminForm(User user)
     {
@@ -49,6 +51,12 @@ public partial class AdminForm : Form
     {
         users = sqlRepo.GetUsers(searchString: txtSearchUser.Text);
         listViewUsers.Items.Clear();
+        listViewUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        listViewUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        listViewEmployee.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        listViewEmployee.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        listViewWorks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        listViewWorks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         foreach (var user in users)
         {
             listViewUsers.Items.Add(user.ToListViewItem());
@@ -66,6 +74,8 @@ public partial class AdminForm : Form
         LoadEmployees();
         LoadWorks();
         LoadUsers();
+        LoadContracts();
+        timer1.Start();
     }
 
     private void btnAddUser_Click(object sender, EventArgs e)
@@ -134,6 +144,15 @@ public partial class AdminForm : Form
         foreach (var work in works)
         {
             listViewWorks.Items.Add(work.ToListViewItem());
+        }
+    }
+    public void LoadContracts()
+    {
+        contracts = sqlRepo.GetContracts(searchString: txtContractSearch.Text);
+        listViewContracts.Items.Clear();
+        foreach (var contract in contracts)
+        {
+            listViewContracts.Items.Add(contract.ToListViewItem());
         }
     }
 
@@ -225,5 +244,15 @@ public partial class AdminForm : Form
     private void txtSearchWork_TextChanged(object sender, EventArgs e)
     {
         LoadWorks();
+    }
+
+    private void timer1_Tick(object sender, EventArgs e)
+    {
+        lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
+    }
+
+    private void btnExport_Click(object sender, EventArgs e)
+    {
+
     }
 }
