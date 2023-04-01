@@ -20,6 +20,7 @@ namespace WorkRecordSystem.Forms
             this.user = user;
             InitializeComponent();
             lblUser.Text = user.Name;
+            txtCount.Text = sqlRepo.NumberOfHours().ToString();
         }
         public void Show(Form startupForm)
         {
@@ -71,6 +72,7 @@ namespace WorkRecordSystem.Forms
             LoadWorks();
             LoadEmployees();
             LoadContracts();
+            txtCount.Text = sqlRepo.NumberOfHours().ToString();
         }
 
         private void txtSearchEmployee_TextChanged(object sender, EventArgs e)
@@ -90,6 +92,8 @@ namespace WorkRecordSystem.Forms
             if (result == DialogResult.OK)
             {
                 LoadContracts();
+                txtCount.Text = sqlRepo.NumberOfHours().ToString();
+
             }
         }
 
@@ -109,6 +113,7 @@ namespace WorkRecordSystem.Forms
                     {
                         sqlRepo.DeleteContract(Convert.ToInt32(listViewContracts.SelectedItems[0].SubItems[0].Text));
                         LoadContracts();
+                        txtCount.Text = sqlRepo.NumberOfHours().ToString();
                     }
                 }
 
@@ -117,19 +122,28 @@ namespace WorkRecordSystem.Forms
             {
                 MessageBox.Show("Musíte vybrat uživatele ke smazání!");
             }
-
-
-
-
-
-            //if contract older than 24 hours do nothing 
-            //else delete contract 
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             LoadContracts();
+        }
+
+        private void btnHourEvidention_Click(object sender, EventArgs e)
+        {
+            if (listViewContracts.SelectedItems.Count > 0)
+            {
+                decimal hours = Convert.ToDecimal(listViewContracts.SelectedItems[0].SubItems[6].Text);
+                hours = hours + numericUpDownHours.Value;
+                sqlRepo.AddHours(hours, Convert.ToInt32(listViewContracts.SelectedItems[0].SubItems[0].Text));
+                LoadContracts();
+                txtCount.Text = sqlRepo.NumberOfHours().ToString();
+            }
+            else
+            {
+                MessageBox.Show("Musíte vybrat kontrakt k evidenci hodin");
+            }
+
         }
     }
 }

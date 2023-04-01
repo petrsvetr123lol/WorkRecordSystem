@@ -69,13 +69,9 @@
             columnHeader21 = new ColumnHeader();
             numericUpDownHours = new NumericUpDown();
             panel3 = new Panel();
-            label12 = new Label();
-            txtContractNumber = new TextBox();
-            label6 = new Label();
-            txtEmployeeNumber = new TextBox();
             label5 = new Label();
             panel5 = new Panel();
-            label8 = new Label();
+            txtCount = new Label();
             label7 = new Label();
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
@@ -227,12 +223,13 @@
             // 
             // btnHourEvidention
             // 
-            btnHourEvidention.Location = new Point(620, 24);
+            btnHourEvidention.Location = new Point(586, 23);
             btnHourEvidention.Name = "btnHourEvidention";
-            btnHourEvidention.Size = new Size(104, 23);
+            btnHourEvidention.Size = new Size(138, 23);
             btnHourEvidention.TabIndex = 22;
             btnHourEvidention.Text = "Evidovat hodiny";
             btnHourEvidention.UseVisualStyleBackColor = true;
+            btnHourEvidention.Click += btnHourEvidention_Click;
             // 
             // panel4
             // 
@@ -402,18 +399,14 @@
             // 
             // numericUpDownHours
             // 
-            numericUpDownHours.Location = new Point(485, 22);
+            numericUpDownHours.Location = new Point(454, 22);
             numericUpDownHours.Name = "numericUpDownHours";
             numericUpDownHours.Size = new Size(83, 23);
             numericUpDownHours.TabIndex = 22;
             // 
             // panel3
             // 
-            panel3.Controls.Add(label12);
-            panel3.Controls.Add(txtContractNumber);
             panel3.Controls.Add(btnHourEvidention);
-            panel3.Controls.Add(label6);
-            panel3.Controls.Add(txtEmployeeNumber);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(numericUpDownHours);
             panel3.Location = new Point(12, 66);
@@ -421,42 +414,10 @@
             panel3.Size = new Size(749, 67);
             panel3.TabIndex = 23;
             // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(12, 28);
-            label12.Name = "label12";
-            label12.Size = new Size(87, 15);
-            label12.TabIndex = 27;
-            label12.Text = "Číslo kontraktu";
-            // 
-            // txtContractNumber
-            // 
-            txtContractNumber.Location = new Point(98, 21);
-            txtContractNumber.Name = "txtContractNumber";
-            txtContractNumber.Size = new Size(58, 23);
-            txtContractNumber.TabIndex = 26;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(185, 24);
-            label6.Name = "label6";
-            label6.Size = new Size(105, 15);
-            label6.TabIndex = 25;
-            label6.Text = "Číslo zaměstnance";
-            // 
-            // txtEmployeeNumber
-            // 
-            txtEmployeeNumber.Location = new Point(296, 20);
-            txtEmployeeNumber.Name = "txtEmployeeNumber";
-            txtEmployeeNumber.Size = new Size(70, 23);
-            txtEmployeeNumber.TabIndex = 24;
-            // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(408, 24);
+            label5.Location = new Point(343, 27);
             label5.Name = "label5";
             label5.Size = new Size(71, 15);
             label5.TabIndex = 23;
@@ -464,22 +425,22 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(label8);
+            panel5.Controls.Add(txtCount);
             panel5.Controls.Add(label7);
             panel5.Location = new Point(767, 66);
             panel5.Name = "panel5";
             panel5.Size = new Size(539, 67);
             panel5.TabIndex = 24;
             // 
-            // label8
+            // txtCount
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(265, 20);
-            label8.Name = "label8";
-            label8.Size = new Size(24, 25);
-            label8.TabIndex = 1;
-            label8.Text = "X";
+            txtCount.AutoSize = true;
+            txtCount.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtCount.Location = new Point(265, 20);
+            txtCount.Name = "txtCount";
+            txtCount.Size = new Size(24, 25);
+            txtCount.TabIndex = 1;
+            txtCount.Text = "X";
             // 
             // label7
             // 
@@ -559,14 +520,10 @@
         private Button btnHourEvidention;
         private NumericUpDown numericUpDownHours;
         private Panel panel3;
-        private Label label6;
-        private TextBox txtEmployeeNumber;
         private Label label5;
         private Panel panel5;
-        private Label label8;
+        private Label txtCount;
         private Label label7;
-        private Label label12;
-        private TextBox txtContractNumber;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader11;

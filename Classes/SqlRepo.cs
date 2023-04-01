@@ -416,7 +416,7 @@ namespace WorkRecordSystem.Classes
                         {
                             var contract = new Contract((int)reader["ContractNumber"], reader["Name"].ToString(),
                                 reader["FirstName"].ToString(), reader["LastName"].ToString(), reader["CustomerName"].ToString(),
-                                DateTime.Parse(reader["DateAdded"].ToString()), (int)reader["NumberOfHours"]);
+                                DateTime.Parse(reader["DateAdded"].ToString()), (decimal)reader["NumberOfHours"]);
                             contracts.Add(contract);
                         }
                     }
@@ -426,14 +426,51 @@ namespace WorkRecordSystem.Classes
             return contracts;
         }
         //hours section
-        public void AddHours(int hours)
+        public void AddHours(decimal hours, int contractId)
         {
-
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE Contract SET NumberOfHours=@Hours WHERE ContractNumber=@ContractId;";
+                    cmd.Parameters.AddWithValue("@Hours", hours);
+                    cmd.Parameters.AddWithValue("@ContractId", contractId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
         //statistic section
-        public void BodyCount()
+        public int BodyCount()
         {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT COUNT (*) FROM Employees";
+                    int rowCount = (int)cmd.ExecuteScalar();
+                    sqlConnection.Close();
+                    return rowCount;
 
+                }
+            }
+           
+        }
+        public decimal NumberOfHours()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT SUM (NumberOfHours) FROM Contract";
+                    decimal rowCount = (decimal)cmd.ExecuteScalar();
+                    sqlConnection.Close();
+                    return rowCount;
+
+                }
+            }
         }
 
     }

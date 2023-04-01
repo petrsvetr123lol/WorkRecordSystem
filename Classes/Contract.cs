@@ -10,9 +10,9 @@
         public string EmployeeLastName { get; set; }
         public string CustomerName { get; set; }
         public DateTime DateAdded { get; set; }
-        public int NumberOfHours { get; set; }
+        public decimal NumberOfHours { get; set; }
 
-        public Contract(int contractId, string work, string employeeFirstName, string employeeLastName, string customerName, DateTime dateAdded, int numberOfHours)
+        public Contract(int contractId, string work, string employeeFirstName, string employeeLastName, string customerName, DateTime dateAdded, decimal numberOfHours)
         {
             ContractId = contractId;
             Work = work;
