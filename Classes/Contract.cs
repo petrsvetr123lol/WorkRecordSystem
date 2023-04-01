@@ -1,12 +1,11 @@
-﻿using System.Data;
-using System.Xml.Linq;
-
-namespace WorkRecordSystem.Classes
+﻿namespace WorkRecordSystem.Classes
 {
     public class Contract
     {
         public int ContractId { get; set; }
         public string Work { get; set; }
+        public int EmployeeId { get; set; }
+        public int WorkId { get; set; }
         public string EmployeeFirstName { get; set; }
         public string EmployeeLastName { get; set; }
         public string CustomerName { get; set; }
@@ -23,6 +22,14 @@ namespace WorkRecordSystem.Classes
             DateAdded = dateAdded;
             NumberOfHours = numberOfHours;
         }
+        public Contract(int employeeId, int workId, string customerName) 
+        {
+            EmployeeId = employeeId;
+            WorkId = workId;
+            CustomerName = customerName;
+        }
+
+     
         public ListViewItem ToListViewItem()
         {
             return new ListViewItem(new string[] { ContractId.ToString(), Work, EmployeeFirstName, EmployeeLastName, CustomerName, DateAdded.ToString(), NumberOfHours.ToString() });

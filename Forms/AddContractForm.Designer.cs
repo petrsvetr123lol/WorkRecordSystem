@@ -29,20 +29,22 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            btnCancel = new Button();
+            label3 = new Label();
+            txtCustomer = new TextBox();
             btnCreateContract = new Button();
             txtEmployeeId = new TextBox();
             txtWorkId = new TextBox();
             label5 = new Label();
             label2 = new Label();
             label1 = new Label();
-            txtCustomer = new TextBox();
-            label3 = new Label();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(btnCancel);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(txtCustomer);
             panel2.Controls.Add(btnCreateContract);
@@ -56,14 +58,41 @@
             panel2.Size = new Size(267, 191);
             panel2.TabIndex = 17;
             // 
+            // btnCancel
+            // 
+            btnCancel.Location = new Point(16, 153);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(111, 24);
+            btnCancel.TabIndex = 24;
+            btnCancel.Text = "Zrušit";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(38, 112);
+            label3.Name = "label3";
+            label3.Size = new Size(53, 15);
+            label3.TabIndex = 23;
+            label3.Text = "Zákazník";
+            // 
+            // txtCustomer
+            // 
+            txtCustomer.Location = new Point(97, 109);
+            txtCustomer.Name = "txtCustomer";
+            txtCustomer.Size = new Size(147, 23);
+            txtCustomer.TabIndex = 22;
+            // 
             // btnCreateContract
             // 
-            btnCreateContract.Location = new Point(19, 153);
+            btnCreateContract.Location = new Point(133, 153);
             btnCreateContract.Name = "btnCreateContract";
-            btnCreateContract.Size = new Size(225, 24);
+            btnCreateContract.Size = new Size(111, 24);
             btnCreateContract.TabIndex = 21;
-            btnCreateContract.Text = "Vytvořit kontrakt";
+            btnCreateContract.Text = "Vytvořit";
             btnCreateContract.UseVisualStyleBackColor = true;
+            btnCreateContract.Click += btnCreateContract_Click;
             // 
             // txtEmployeeId
             // 
@@ -107,22 +136,6 @@
             label1.TabIndex = 16;
             label1.Text = "Vytvořit kontrakt";
             // 
-            // txtCustomer
-            // 
-            txtCustomer.Location = new Point(97, 109);
-            txtCustomer.Name = "txtCustomer";
-            txtCustomer.Size = new Size(147, 23);
-            txtCustomer.TabIndex = 22;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(38, 112);
-            label3.Name = "label3";
-            label3.Size = new Size(53, 15);
-            label3.TabIndex = 23;
-            label3.Text = "Zákazník";
-            // 
             // AddContractForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -150,5 +163,6 @@
         private Label label1;
         private Label label3;
         private TextBox txtCustomer;
+        private Button btnCancel;
     }
 }

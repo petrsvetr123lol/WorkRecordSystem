@@ -18,8 +18,7 @@ namespace WorkRecordSystem.Classes
             PasswordSalt = passwordSalt;
             Role = role;
         }
-        public 
-            User(string name, string password, string role)
+        public User(string name, string password, string role)
         {
             Name = name;
             Role = role;

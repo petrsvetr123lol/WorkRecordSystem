@@ -58,7 +58,7 @@ namespace WorkRecordSystem.Forms
         }
         public void LoadContracts()
         {
-            contracts = sqlRepo.GetContracts();
+            contracts = sqlRepo.GetContracts(searchString: txtContractSearch.Text);
             listViewContracts.Items.Clear();
             foreach (var contract in contracts)
             {
@@ -96,7 +96,40 @@ namespace WorkRecordSystem.Forms
         private void btnDeleteContract_Click(object sender, EventArgs e)
         {
 
+            if (listViewContracts.SelectedItems.Count > 0)
+            {
+                DateTime date = DateTime.Parse(listViewContracts.SelectedItems[0].SubItems[5].Text);
+                if (DateTime.Now.Subtract(date).TotalHours > 24)
+                {
+                    MessageBox.Show("Kontrakt není možné smazat, protože je starší více než 24 hodin!");
+                }
+                else
+                {
+                    if (MessageBox.Show("Opravdu chcete smazat vybraný kontrakt?", "Mazání kontraktu", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        sqlRepo.DeleteContract(Convert.ToInt32(listViewContracts.SelectedItems[0].SubItems[0].Text));
+                        LoadContracts();
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Musíte vybrat uživatele ke smazání!");
+            }
+
+
+
+
+
+            //if contract older than 24 hours do nothing 
+            //else delete contract 
+
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            LoadContracts();
+        }
     }
 }

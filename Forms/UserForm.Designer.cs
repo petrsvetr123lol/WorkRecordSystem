@@ -57,9 +57,16 @@
             btnDeleteContract = new Button();
             btnAddContract = new Button();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtContractSearch = new TextBox();
             label2 = new Label();
             listViewContracts = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader11 = new ColumnHeader();
+            columnHeader12 = new ColumnHeader();
+            columnHeader13 = new ColumnHeader();
+            columnHeader20 = new ColumnHeader();
+            columnHeader21 = new ColumnHeader();
             numericUpDownHours = new NumericUpDown();
             panel3 = new Panel();
             label12 = new Label();
@@ -70,13 +77,6 @@
             panel5 = new Panel();
             label8 = new Label();
             label7 = new Label();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader11 = new ColumnHeader();
-            columnHeader12 = new ColumnHeader();
-            columnHeader13 = new ColumnHeader();
-            columnHeader20 = new ColumnHeader();
-            columnHeader21 = new ColumnHeader();
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -302,7 +302,7 @@
             panel2.Controls.Add(btnDeleteContract);
             panel2.Controls.Add(btnAddContract);
             panel2.Controls.Add(label1);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(txtContractSearch);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(listViewContracts);
             panel2.Location = new Point(767, 139);
@@ -339,12 +339,13 @@
             label1.TabIndex = 18;
             label1.Text = "Vyhledávání kontraktu";
             // 
-            // textBox1
+            // txtContractSearch
             // 
-            textBox1.Location = new Point(143, 49);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(115, 23);
-            textBox1.TabIndex = 20;
+            txtContractSearch.Location = new Point(143, 49);
+            txtContractSearch.Name = "txtContractSearch";
+            txtContractSearch.Size = new Size(115, 23);
+            txtContractSearch.TabIndex = 20;
+            txtContractSearch.TextChanged += textBox1_TextChanged;
             // 
             // label2
             // 
@@ -368,6 +369,36 @@
             listViewContracts.TabIndex = 0;
             listViewContracts.UseCompatibleStateImageBehavior = false;
             listViewContracts.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "ID";
+            columnHeader1.Width = 30;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Název práce";
+            // 
+            // columnHeader11
+            // 
+            columnHeader11.Text = "Jméno zaměstnance";
+            columnHeader11.Width = 130;
+            // 
+            // columnHeader12
+            // 
+            columnHeader12.Text = "Příjmení zaměstnance";
+            // 
+            // columnHeader13
+            // 
+            columnHeader13.Text = "Jméno zákazníka";
+            // 
+            // columnHeader20
+            // 
+            columnHeader20.Text = "Datum";
+            // 
+            // columnHeader21
+            // 
+            columnHeader21.Text = "Počet hodin";
             // 
             // numericUpDownHours
             // 
@@ -459,36 +490,6 @@
             label7.TabIndex = 0;
             label7.Text = "Celkový počet odpracovaných hodin:";
             // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "ID";
-            columnHeader1.Width = 30;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Název práce";
-            // 
-            // columnHeader11
-            // 
-            columnHeader11.Text = "Jméno zaměstnance";
-            columnHeader11.Width = 130;
-            // 
-            // columnHeader12
-            // 
-            columnHeader12.Text = "Příjmení zaměstnance";
-            // 
-            // columnHeader13
-            // 
-            columnHeader13.Text = "Jméno zákazníka";
-            // 
-            // columnHeader20
-            // 
-            columnHeader20.Text = "Datum";
-            // 
-            // columnHeader21
-            // 
-            columnHeader21.Text = "Počet hodin";
-            // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -550,7 +551,7 @@
         private ColumnHeader Description;
         private Panel panel2;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtContractSearch;
         private Label label2;
         private ListView listViewContracts;
         private Button btnDeleteContract;

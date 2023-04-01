@@ -1,0 +1,1 @@
+﻿SELECT Contract.ContractNumber,WorkType.Name,Contract.Employee, Employee.FirstName, Employee.LastName, Contract.CustomerName, Contract.DateAdded ,Contract.NumberOfHours FROM Contract JOIN Employee ON Contract.Employee = Employee.PersonalNumber JOIN WorkType ON Contract.WorkType = WorkType.WorkTypeId;
