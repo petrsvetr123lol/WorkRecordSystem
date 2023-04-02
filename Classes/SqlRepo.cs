@@ -3,7 +3,7 @@ namespace WorkRecordSystem.Classes
 {
     public class SqlRepo
     {
-        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=WorkRecordSystemDb;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+        private string connectionString = @"Data Source=20.115.24.109;Initial Catalog=WorkRecordSystemDb;User ID=sa;Password=ZaverecnyProjekt123+;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         //user section
         public List<User> GetUsers()
