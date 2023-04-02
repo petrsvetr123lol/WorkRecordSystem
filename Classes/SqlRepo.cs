@@ -385,7 +385,7 @@ namespace WorkRecordSystem.Classes
                         cmd.Parameters.AddWithValue("CustomerName", contract.CustomerName);
                         cmd.ExecuteNonQuery();
                     }
-                    sqlConnection.Close();
+                    sqlConnection.Close(); 
                 }
                 catch(SqlException ex)
                 {
