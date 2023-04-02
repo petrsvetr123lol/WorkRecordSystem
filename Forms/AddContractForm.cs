@@ -19,7 +19,7 @@ namespace WorkRecordSystem.Forms
 
         private void btnCreateContract_Click(object sender, EventArgs e)
         {
-            if (txtCustomer.Text != "" && txtEmployeeId.Text != "" && txtWorkId.Text != "")
+            if (txtCustomer.Text != "" || txtEmployeeId.Text != "" || txtWorkId.Text != "")
             {
                 Contract contract = new Contract(Convert.ToInt32(txtEmployeeId.Text), Convert.ToInt32(txtWorkId.Text), txtCustomer.Text);
                 sqlRepo.AddContract(contract);
