@@ -71,6 +71,25 @@ public partial class AdminForm : Form
 
     private void AdminForm_Load(object sender, EventArgs e)
     {
+        btnLogout.TabIndex = 0;
+        txtContractSearch.TabIndex = 1;
+        btnAddContract.TabIndex = 2;
+        btnDeleteContract.TabIndex = 3;
+        txtSearchEmployee.TabIndex = 4;
+        btnAddEmployee.TabIndex = 5;
+        btnEditEmployee.TabIndex = 6;
+        btnDeleteEmployee.TabIndex = 7;
+        txtSearchUser.TabIndex = 8;
+        btnAddUser.TabIndex = 9;
+        btnEditUser.TabIndex = 10;
+        btnDeleteUser.TabIndex = 11;
+        txtSearchWork.TabIndex = 12;
+        btnAddWork.TabIndex = 13;
+        btnEditWork.TabIndex = 14;
+        btnDeleteWork.TabIndex = 15;
+        btnExport.TabIndex = 16;
+
+
         LoadEmployees();
         LoadWorks();
         LoadUsers();
@@ -78,7 +97,7 @@ public partial class AdminForm : Form
         timer1.Start();
 
         btnAddUser.Cursor = Cursors.Hand;
-        btnAddContract.Cursor = Cursors.Hand; 
+        btnAddContract.Cursor = Cursors.Hand;
         btnAddEmployee.Cursor = Cursors.Hand;
         btnAddWork.Cursor = Cursors.Hand;
 

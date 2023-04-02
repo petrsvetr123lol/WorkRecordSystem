@@ -42,5 +42,13 @@ namespace WorkRecordSystem.Forms
             btnCancel.Cursor = Cursors.Hand;
             btnCreateContract.Cursor = Cursors.Hand;
         }
+
+        private void txtCustomer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCreateContract.PerformClick();
+            }
+        }
     }
 }

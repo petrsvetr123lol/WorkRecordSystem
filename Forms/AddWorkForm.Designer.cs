@@ -38,14 +38,16 @@
             txtWorkId = new TextBox();
             label4 = new Label();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(29, 20);
+            label1.Location = new Point(56, 17);
             label1.Name = "label1";
             label1.Size = new Size(257, 37);
             label1.TabIndex = 0;
@@ -58,6 +60,7 @@
             txtDescription.Size = new Size(280, 96);
             txtDescription.TabIndex = 1;
             txtDescription.Text = "";
+            txtDescription.KeyDown += txtDescription_KeyDown;
             // 
             // label2
             // 
@@ -123,6 +126,7 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnCancel);
             panel1.Controls.Add(btnSave);
@@ -136,6 +140,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(318, 347);
             panel1.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(-1, -1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 55);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // AddWorkForm
             // 
@@ -151,6 +165,7 @@
             Load += AddWorkForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -166,5 +181,6 @@
         private TextBox txtWorkId;
         private Label label4;
         private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

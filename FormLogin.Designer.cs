@@ -37,14 +37,16 @@
             btnCancel = new Button();
             label4 = new Label();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(73, 11);
+            label1.Location = new Point(107, 13);
             label1.Name = "label1";
             label1.Size = new Size(91, 45);
             label1.TabIndex = 0;
@@ -82,6 +84,7 @@
             txtPassword.PasswordChar = '•';
             txtPassword.Size = new Size(153, 23);
             txtPassword.TabIndex = 4;
+            txtPassword.KeyDown += txtPassword_KeyDown;
             // 
             // btnLogin
             // 
@@ -118,12 +121,23 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(9, 8);
             panel1.Name = "panel1";
             panel1.Size = new Size(236, 257);
             panel1.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(44, 11);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 55);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
             // 
             // FormLogin
             // 
@@ -146,6 +160,7 @@
             KeyDown += FormLogin_KeyDown;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -161,5 +176,6 @@
         private Button btnCancel;
         private Label label4;
         private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

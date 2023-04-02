@@ -53,13 +53,21 @@ namespace WorkRecordSystem.Forms
         private void AddUserForm_Load(object sender, EventArgs e)
         {
             txtName.TabIndex = 0;
-            txtPassword.TabIndex = 1;
-            txtPasswordAgain.TabIndex = 2;
-            comboRole.TabIndex = 3;
+            txtPassword.TabIndex = 3;
+            txtPasswordAgain.TabIndex = 4;
+            comboRole.TabIndex = 2;
             btnSave.TabIndex = 4;
             btnCancel.TabIndex = 5;
             btnSave.Cursor = Cursors.Hand;
             btnCancel.Cursor = Cursors.Hand;
+        }
+
+        private void txtPasswordAgain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSave.PerformClick();
+            }
         }
     }
 }

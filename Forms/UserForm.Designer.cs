@@ -77,6 +77,7 @@
             txtCount = new Label();
             label7 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            pictureBox1 = new PictureBox();
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -84,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownHours).BeginInit();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // popis
@@ -109,7 +111,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(12, 6);
+            label3.Location = new Point(63, 8);
             label3.Name = "label3";
             label3.Size = new Size(211, 32);
             label3.TabIndex = 5;
@@ -216,6 +218,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(lblTime);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(popis);
@@ -488,6 +491,16 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(0, -7);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 55);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 25;
+            pictureBox1.TabStop = false;
+            // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -518,6 +531,7 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -571,5 +585,6 @@
         private Label label6;
         private System.Windows.Forms.Timer timer1;
         private Label lblTime;
+        private PictureBox pictureBox1;
     }
 }

@@ -75,5 +75,13 @@ namespace WorkRecordSystem
                 btnLogin.PerformClick();
             }
         }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
+        }
     }
 }

@@ -38,12 +38,15 @@
             label5 = new Label();
             label2 = new Label();
             label1 = new Label();
+            pictureBox1 = new PictureBox();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(btnCancel);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(txtCustomer);
@@ -83,6 +86,7 @@
             txtCustomer.Name = "txtCustomer";
             txtCustomer.Size = new Size(147, 23);
             txtCustomer.TabIndex = 22;
+            txtCustomer.KeyDown += txtCustomer_KeyDown;
             // 
             // btnCreateContract
             // 
@@ -130,11 +134,21 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(42, 11);
+            label1.Location = new Point(62, 10);
             label1.Name = "label1";
             label1.Size = new Size(183, 30);
             label1.TabIndex = 16;
             label1.Text = "Vytvořit kontrakt";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(-1, -2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 55);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 25;
+            pictureBox1.TabStop = false;
             // 
             // AddContractForm
             // 
@@ -150,6 +164,7 @@
             Load += AddContractForm_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -165,5 +180,6 @@
         private Label label3;
         private TextBox txtCustomer;
         private Button btnCancel;
+        private PictureBox pictureBox1;
     }
 }

@@ -39,14 +39,16 @@
             panel1 = new Panel();
             label5 = new Label();
             txtPasswordAgain = new TextBox();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(83, 14);
+            label4.Location = new Point(116, 22);
             label4.Name = "label4";
             label4.Size = new Size(157, 32);
             label4.TabIndex = 17;
@@ -116,6 +118,7 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(txtPasswordAgain);
@@ -145,6 +148,17 @@
             txtPasswordAgain.Name = "txtPasswordAgain";
             txtPasswordAgain.Size = new Size(222, 23);
             txtPasswordAgain.TabIndex = 17;
+            txtPasswordAgain.KeyDown += txtPasswordAgain_KeyDown;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(-1, -1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 55);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
             // 
             // EditUserForm
             // 
@@ -161,6 +175,7 @@
             Load += EditUserForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -178,5 +193,6 @@
         private Panel panel1;
         private Label label5;
         private TextBox txtPasswordAgain;
+        private PictureBox pictureBox1;
     }
 }

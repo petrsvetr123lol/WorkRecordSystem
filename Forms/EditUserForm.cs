@@ -60,5 +60,13 @@ namespace WorkRecordSystem.Forms
             btnSave.Cursor = Cursors.Hand;
             btnCancel.Cursor = Cursors.Hand;
         }
+
+        private void txtPasswordAgain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSave.PerformClick();
+            }
+        }
     }
 }

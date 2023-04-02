@@ -100,12 +100,14 @@
             label12 = new Label();
             label7 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            pictureBox1 = new PictureBox();
             workPanel.SuspendLayout();
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblUser
@@ -143,7 +145,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(15, 12);
+            label3.Location = new Point(66, 15);
             label3.Name = "label3";
             label3.Size = new Size(304, 32);
             label3.TabIndex = 4;
@@ -368,6 +370,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(lblTime);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(lblUser);
@@ -752,6 +755,16 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 55);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 24;
+            pictureBox1.TabStop = false;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -782,6 +795,7 @@
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -858,5 +872,6 @@
         private Label lblCountContracts;
         private Label lblCountEmployees;
         private Label lblCountUsers;
+        private PictureBox pictureBox1;
     }
 }

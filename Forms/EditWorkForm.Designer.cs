@@ -38,7 +38,9 @@
             txtDescription = new RichTextBox();
             label1 = new Label();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label4
@@ -109,12 +111,13 @@
             txtDescription.Size = new Size(280, 105);
             txtDescription.TabIndex = 10;
             txtDescription.Text = "";
+            txtDescription.KeyDown += txtDescription_KeyDown;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(61, 10);
+            label1.Location = new Point(90, 17);
             label1.Name = "label1";
             label1.Size = new Size(188, 37);
             label1.TabIndex = 9;
@@ -123,6 +126,7 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnSave);
             panel1.Controls.Add(txtWorkId);
             panel1.Controls.Add(btnCancel);
@@ -136,6 +140,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(319, 306);
             panel1.TabIndex = 18;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(-1, -1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 55);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
             // 
             // EditWorkForm
             // 
@@ -151,6 +165,7 @@
             Load += EditWorkForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -166,5 +181,6 @@
         private RichTextBox txtDescription;
         private Label label1;
         private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

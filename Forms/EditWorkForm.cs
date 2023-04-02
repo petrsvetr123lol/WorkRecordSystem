@@ -39,5 +39,13 @@ namespace WorkRecordSystem.Forms
             btnCancel.Cursor = Cursors.Hand;
             btnSave.Cursor = Cursors.Hand;
         }
+
+        private void txtDescription_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSave.PerformClick();
+            }
+        }
     }
 }

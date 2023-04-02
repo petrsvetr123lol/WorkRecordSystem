@@ -41,5 +41,13 @@ namespace WorkRecordSystem.Forms
             }
             DialogResult = DialogResult.OK;
         }
+
+        private void txtDescription_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSave.PerformClick();
+            }
+        }
     }
 }

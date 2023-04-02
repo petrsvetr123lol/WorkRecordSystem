@@ -45,12 +45,20 @@ namespace WorkRecordSystem.Forms
             txtName.TabIndex = 2;
             txtSurname.TabIndex = 3;
             txtEmail.TabIndex = 4;
-            txtPhone.TabIndex = 5;
-            bdayPicker.TabIndex = 6;
+            txtPhone.TabIndex = 6;
+            bdayPicker.TabIndex = 5;
             btnSave.TabIndex = 7;
             btnCancel.TabIndex = 8;
             btnCancel.Cursor = Cursors.Hand;
             btnSave.Cursor = Cursors.Hand;
+        }
+
+        private void txtPhone_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSave.PerformClick();
+            }
         }
     }
 }

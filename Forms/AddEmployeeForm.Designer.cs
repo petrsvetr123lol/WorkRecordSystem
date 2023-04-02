@@ -47,16 +47,18 @@
             label9 = new Label();
             txtRole = new TextBox();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(16, 15);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(79, 22);
             label1.Name = "label1";
-            label1.Size = new Size(295, 30);
+            label1.Size = new Size(231, 21);
             label1.TabIndex = 0;
             label1.Text = "Přidání nového zaměstnance";
             // 
@@ -120,7 +122,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(61, 227);
+            label6.Location = new Point(62, 270);
             label6.Name = "label6";
             label6.Size = new Size(45, 15);
             label6.TabIndex = 9;
@@ -128,15 +130,16 @@
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(127, 219);
+            txtPhone.Location = new Point(127, 262);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(183, 23);
             txtPhone.TabIndex = 10;
+            txtPhone.KeyDown += txtPhone_KeyDown;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(15, 264);
+            label7.Location = new Point(16, 237);
             label7.Name = "label7";
             label7.Size = new Size(91, 15);
             label7.TabIndex = 11;
@@ -145,7 +148,7 @@
             // bdayPicker
             // 
             bdayPicker.Format = DateTimePickerFormat.Short;
-            bdayPicker.Location = new Point(127, 256);
+            bdayPicker.Location = new Point(127, 229);
             bdayPicker.Name = "bdayPicker";
             bdayPicker.Size = new Size(183, 23);
             bdayPicker.TabIndex = 12;
@@ -205,6 +208,7 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(txtPersonalNumber);
@@ -227,6 +231,16 @@
             panel1.Size = new Size(339, 336);
             panel1.TabIndex = 19;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(-1, -1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 55);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
+            // 
             // AddEmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -242,6 +256,7 @@
             Load += AddEmployeeForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -267,5 +282,6 @@
         private Label label9;
         private TextBox txtRole;
         private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

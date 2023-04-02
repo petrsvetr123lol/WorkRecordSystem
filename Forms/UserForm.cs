@@ -72,7 +72,7 @@ namespace WorkRecordSystem.Forms
             btnAddContract.Cursor = Cursors.Hand;
             btnDeleteContract.Cursor = Cursors.Hand;
             btnLogout.Cursor = Cursors.Hand;
-            btnHourEvidention.Cursor = Cursors.Hand; 
+            btnHourEvidention.Cursor = Cursors.Hand;
 
 
             timer1.Start();
