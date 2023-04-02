@@ -158,6 +158,7 @@
             MaximizeBox = false;
             Name = "EditUserForm";
             Text = "EditUserForm";
+            Load += EditUserForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

@@ -148,6 +148,7 @@
             MaximizeBox = false;
             Name = "EditWorkForm";
             Text = "EditWork";
+            Load += EditWorkForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

@@ -304,15 +304,15 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(25, 52);
+            label4.Location = new Point(16, 49);
             label4.Name = "label4";
-            label4.Size = new Size(143, 15);
+            label4.Size = new Size(212, 15);
             label4.TabIndex = 13;
-            label4.Text = "Vyhledávání zaměstnance";
+            label4.Text = "Vyhledávání zaměstnance podle jména";
             // 
             // txtSearchEmployee
             // 
-            txtSearchEmployee.Location = new Point(174, 46);
+            txtSearchEmployee.Location = new Point(237, 44);
             txtSearchEmployee.Name = "txtSearchEmployee";
             txtSearchEmployee.Size = new Size(156, 23);
             txtSearchEmployee.TabIndex = 1;
@@ -406,15 +406,15 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(25, 52);
+            label11.Location = new Point(12, 52);
             label11.Name = "label11";
-            label11.Size = new Size(103, 15);
+            label11.Size = new Size(170, 15);
             label11.TabIndex = 18;
-            label11.Text = "Vyhledávání práce";
+            label11.Text = "Vyhledávání práce podle názvu";
             // 
             // txtSearchWork
             // 
-            txtSearchWork.Location = new Point(134, 49);
+            txtSearchWork.Location = new Point(188, 49);
             txtSearchWork.Name = "txtSearchWork";
             txtSearchWork.Size = new Size(156, 23);
             txtSearchWork.TabIndex = 20;
@@ -504,7 +504,7 @@
             // 
             // btnDeleteContract
             // 
-            btnDeleteContract.Location = new Point(367, 44);
+            btnDeleteContract.Location = new Point(491, 49);
             btnDeleteContract.Name = "btnDeleteContract";
             btnDeleteContract.Size = new Size(75, 23);
             btnDeleteContract.TabIndex = 23;
@@ -514,7 +514,8 @@
             // 
             // btnAddContract
             // 
-            btnAddContract.Location = new Point(286, 44);
+            btnAddContract.Cursor = Cursors.Hand;
+            btnAddContract.Location = new Point(410, 49);
             btnAddContract.Name = "btnAddContract";
             btnAddContract.Size = new Size(75, 23);
             btnAddContract.TabIndex = 21;
@@ -527,15 +528,15 @@
             label5.AutoSize = true;
             label5.Location = new Point(12, 52);
             label5.Name = "label5";
-            label5.Size = new Size(125, 15);
+            label5.Size = new Size(211, 15);
             label5.TabIndex = 18;
-            label5.Text = "Vyhledávání kontraktu";
+            label5.Text = "Vyhledávání kontraktu podle zákazníka";
             // 
             // txtContractSearch
             // 
-            txtContractSearch.Location = new Point(143, 49);
+            txtContractSearch.Location = new Point(229, 49);
             txtContractSearch.Name = "txtContractSearch";
-            txtContractSearch.Size = new Size(115, 23);
+            txtContractSearch.Size = new Size(152, 23);
             txtContractSearch.TabIndex = 20;
             txtContractSearch.TextChanged += txtContractSearch_TextChanged;
             // 

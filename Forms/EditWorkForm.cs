@@ -28,5 +28,16 @@ namespace WorkRecordSystem.Forms
         {
             DialogResult = DialogResult.Cancel;
         }
+
+        private void EditWorkForm_Load(object sender, EventArgs e)
+        {
+            txtWorkId.TabIndex = 0;
+            txtName.TabIndex = 1;
+            txtDescription.TabIndex = 2;
+            btnSave.TabIndex = 3;
+            btnCancel.TabIndex = 4;
+            btnCancel.Cursor = Cursors.Hand;
+            btnSave.Cursor = Cursors.Hand;
+        }
     }
 }

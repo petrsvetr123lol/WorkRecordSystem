@@ -49,5 +49,16 @@ namespace WorkRecordSystem.Forms
                 MessageBox.Show("Musíte zadat požadované údaje!");
             }
         }
+
+        private void EditUserForm_Load(object sender, EventArgs e)
+        {
+            txtName.TabIndex = 0;
+            txtPassword.TabIndex = 1;
+            txtPasswordAgain.TabIndex = 2;
+            btnSave.TabIndex = 3;
+            btnCancel.TabIndex = 4;
+            btnSave.Cursor = Cursors.Hand;
+            btnCancel.Cursor = Cursors.Hand;
+        }
     }
 }

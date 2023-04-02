@@ -69,6 +69,12 @@ namespace WorkRecordSystem.Forms
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
+            btnAddContract.Cursor = Cursors.Hand;
+            btnDeleteContract.Cursor = Cursors.Hand;
+            btnLogout.Cursor = Cursors.Hand;
+            btnHourEvidention.Cursor = Cursors.Hand; 
+
+
             timer1.Start();
             LoadWorks();
             LoadEmployees();
@@ -121,7 +127,7 @@ namespace WorkRecordSystem.Forms
             }
             else
             {
-                MessageBox.Show("Musíte vybrat uživatele ke smazání!");
+                MessageBox.Show("Musíte vybrat kontrakt ke smazání!");
             }
         }
 

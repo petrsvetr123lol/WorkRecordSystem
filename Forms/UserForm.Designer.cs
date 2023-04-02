@@ -155,13 +155,13 @@
             label4.AutoSize = true;
             label4.Location = new Point(12, 52);
             label4.Name = "label4";
-            label4.Size = new Size(143, 15);
+            label4.Size = new Size(212, 15);
             label4.TabIndex = 13;
-            label4.Text = "Vyhledávání zaměstnance";
+            label4.Text = "Vyhledávání zaměstnance podle jména";
             // 
             // txtSearchEmployee
             // 
-            txtSearchEmployee.Location = new Point(161, 49);
+            txtSearchEmployee.Location = new Point(230, 49);
             txtSearchEmployee.Name = "txtSearchEmployee";
             txtSearchEmployee.Size = new Size(156, 23);
             txtSearchEmployee.TabIndex = 1;
@@ -352,15 +352,15 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 52);
             label1.Name = "label1";
-            label1.Size = new Size(125, 15);
+            label1.Size = new Size(211, 15);
             label1.TabIndex = 18;
-            label1.Text = "Vyhledávání kontraktu";
+            label1.Text = "Vyhledávání kontraktu podle zákazníka";
             // 
             // txtContractSearch
             // 
-            txtContractSearch.Location = new Point(143, 49);
+            txtContractSearch.Location = new Point(229, 49);
             txtContractSearch.Name = "txtContractSearch";
-            txtContractSearch.Size = new Size(115, 23);
+            txtContractSearch.Size = new Size(132, 23);
             txtContractSearch.TabIndex = 20;
             txtContractSearch.TextChanged += textBox1_TextChanged;
             // 

@@ -49,5 +49,17 @@ namespace WorkRecordSystem.Forms
             DialogResult = DialogResult.OK;
 
         }
+
+        private void AddUserForm_Load(object sender, EventArgs e)
+        {
+            txtName.TabIndex = 0;
+            txtPassword.TabIndex = 1;
+            txtPasswordAgain.TabIndex = 2;
+            comboRole.TabIndex = 3;
+            btnSave.TabIndex = 4;
+            btnCancel.TabIndex = 5;
+            btnSave.Cursor = Cursors.Hand;
+            btnCancel.Cursor = Cursors.Hand;
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using WorkRecordSystem.Classes;
 using WorkRecordSystem.Forms;
-using System.Collections.Generic;
 
 namespace WorkRecordSystem;
 
@@ -77,6 +76,24 @@ public partial class AdminForm : Form
         LoadUsers();
         LoadContracts();
         timer1.Start();
+
+        btnAddUser.Cursor = Cursors.Hand;
+        btnAddContract.Cursor = Cursors.Hand; 
+        btnAddEmployee.Cursor = Cursors.Hand;
+        btnAddWork.Cursor = Cursors.Hand;
+
+        btnDeleteContract.Cursor = Cursors.Hand;
+        btnDeleteEmployee.Cursor = Cursors.Hand;
+        btnDeleteUser.Cursor = Cursors.Hand;
+        btnDeleteWork.Cursor = Cursors.Hand;
+
+        btnEditUser.Cursor = Cursors.Hand;
+        btnEditEmployee.Cursor = Cursors.Hand;
+        btnEditWork.Cursor = Cursors.Hand;
+
+        btnLogout.Cursor = Cursors.Hand;
+        btnExport.Cursor = Cursors.Hand;
+
 
         lblCountContracts.Text = sqlRepo.ContractCount().ToString();
         lblCountEmployees.Text = sqlRepo.EmployeeCount().ToString();
@@ -186,7 +203,7 @@ public partial class AdminForm : Form
     {
         if (listViewEmployee.SelectedItems.Count > 0)
         {
-            if (MessageBox.Show("Opravdu chcete smazat vybraného zaměstnance?", "Mazání uživatele", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Opravdu chcete smazat vybraného zaměstnance?", "Mazání zaměstnance", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 sqlRepo.DeleteEmployee(Convert.ToInt32(listViewEmployee.SelectedItems[0].SubItems[0].Text));
                 LoadEmployees();
@@ -195,7 +212,7 @@ public partial class AdminForm : Form
         }
         else
         {
-            MessageBox.Show("Musíte vybrat uživatele ke smazání!");
+            MessageBox.Show("Musíte vybrat zaměstnance ke smazání!");
         }
     }
 
@@ -247,7 +264,7 @@ public partial class AdminForm : Form
     {
         if (listViewWorks.SelectedItems.Count > 0)
         {
-            if (MessageBox.Show("Opravdu chcete smazat vybraného zaměstnance?", "Mazání uživatele", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Opravdu chcete smazat vybranou práci?", "Mazání práce", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 sqlRepo.DeleteWork(Convert.ToInt32(listViewWorks.SelectedItems[0].SubItems[0].Text));
                 LoadWorks();
@@ -257,7 +274,7 @@ public partial class AdminForm : Form
         }
         else
         {
-            MessageBox.Show("Musíte vybrat uživatele ke smazání!");
+            MessageBox.Show("Musíte vybrat práci ke smazání!");
         }
     }
 
@@ -346,7 +363,7 @@ public partial class AdminForm : Form
         }
         else
         {
-            MessageBox.Show("Musíte vybrat uživatele ke smazání!");
+            MessageBox.Show("Musíte vybrat kontrakt ke smazání!");
         }
     }
 }

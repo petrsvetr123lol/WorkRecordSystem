@@ -169,6 +169,7 @@
             MinimizeBox = false;
             Name = "AddUserForm";
             Text = "UserDialog";
+            Load += AddUserForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

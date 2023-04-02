@@ -239,6 +239,7 @@
             MaximizeBox = false;
             Name = "AddEmployeeForm";
             Text = "AddEmployeeForm";
+            Load += AddEmployeeForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

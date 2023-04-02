@@ -34,7 +34,13 @@ namespace WorkRecordSystem.Forms
 
         private void AddContractForm_Load(object sender, EventArgs e)
         {
-
+            txtWorkId.TabIndex = 0;
+            txtEmployeeId.TabIndex = 1;
+            txtCustomer.TabIndex = 2;
+            btnCreateContract.TabIndex = 3;
+            btnCancel.TabIndex = 4;
+            btnCancel.Cursor = Cursors.Hand;
+            btnCreateContract.Cursor = Cursors.Hand;
         }
     }
 }

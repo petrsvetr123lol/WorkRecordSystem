@@ -35,5 +35,20 @@ namespace WorkRecordSystem.Forms
             }
             DialogResult = DialogResult.OK;
         }
+
+        private void EditEmployee_Load(object sender, EventArgs e)
+        {
+            txtPersonalNumber.TabIndex = 0;
+            txtRole.TabIndex = 1;
+            txtName.TabIndex = 2;
+            txtSurname.TabIndex = 3;
+            txtEmail.TabIndex = 4;
+            txtPhone.TabIndex = 5;
+            bdayPicker.TabIndex = 6;
+            btnSave.TabIndex = 7;
+            btnCancel.TabIndex = 8;
+            btnCancel.Cursor = Cursors.Hand;
+            btnSave.Cursor = Cursors.Hand;
+        }
     }
 }

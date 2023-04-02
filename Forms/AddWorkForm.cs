@@ -13,7 +13,13 @@ namespace WorkRecordSystem.Forms
 
         private void AddWorkForm_Load(object sender, EventArgs e)
         {
-
+            txtWorkId.TabIndex = 0;
+            txtName.TabIndex = 1;
+            txtDescription.TabIndex = 2;
+            btnSave.TabIndex = 3;
+            btnCancel.TabIndex = 4;
+            btnCancel.Cursor = Cursors.Hand;
+            btnSave.Cursor = Cursors.Hand;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
