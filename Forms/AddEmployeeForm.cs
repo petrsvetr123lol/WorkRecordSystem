@@ -26,7 +26,7 @@ namespace WorkRecordSystem.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtPersonalNumber.Text != "" || txtEmail.Text != "" || txtName.Text != "" || txtPhone.Text != "" || txtRole.Text != "" || txtSurname.Text != "")
+            if (txtPersonalNumber.Text != "" && txtEmail.Text != "" && txtName.Text != "" && txtPhone.Text != "" && txtRole.Text != "" && txtSurname.Text != "")
             {
                 var employee = new Employee(Convert.ToInt32(txtPersonalNumber.Text), txtRole.Text, txtName.Text, txtSurname.Text, bdayPicker.Value, txtEmail.Text, txtPhone.Text);
                 sqlRepo.AddEmployee(employee);

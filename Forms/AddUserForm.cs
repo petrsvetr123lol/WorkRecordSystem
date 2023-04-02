@@ -19,7 +19,7 @@ namespace WorkRecordSystem.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "" || txtPassword.Text != "" || txtPasswordAgain.Text != "")
+            if (txtName.Text != "" && txtPassword.Text != "" && txtPasswordAgain.Text != "")
             {
                 if (txtPassword.Text == txtPasswordAgain.Text)
                 {

@@ -30,7 +30,7 @@ namespace WorkRecordSystem.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "" || txtDescription.Text != "" || txtWorkId.Text != "")
+            if (txtName.Text != "" && txtDescription.Text != "" && txtWorkId.Text != "")
             {
                 var work = new Work(Convert.ToInt32(txtWorkId.Text), txtName.Text, txtDescription.Text);
                 sqlRepo.AddWork(work);
