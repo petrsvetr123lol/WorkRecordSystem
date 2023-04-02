@@ -273,25 +273,35 @@ public partial class AdminForm : Form
 
     private void btnExport_Click(object sender, EventArgs e)
     {
-        SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-
-        saveFileDialog1.Filter = "CSV soubor (*.csv)|*.csv";
-        saveFileDialog1.Title = "Vyberte umístění souboru";
-
-        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+        using (SaveFileDialog saveFileDialog = new SaveFileDialog())
         {
-            string csvFilePath = saveFileDialog1.FileName;
-            using (StreamWriter file = new StreamWriter(csvFilePath))
+            saveFileDialog.Filter = "CSV soubory (*.csv)|*.csv";
+            saveFileDialog.Title = "Uložit soubor";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                foreach (var line in contracts)
+                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
                 {
-                    file.WriteLine(line.ToString());
+                    for (int i = 0; i < listViewContracts.Columns.Count; i++)
+                    {
+                        sw.Write(listViewContracts.Columns[i].Text);
+                        if (i < listViewContracts.Columns.Count - 1)
+                            sw.Write(";");
+                    }
+                    sw.WriteLine();
+
+                    foreach (ListViewItem item in listViewContracts.Items)
+                    {
+                        for (int i = 0; i < item.SubItems.Count; i++)
+                        {
+                            sw.Write(item.SubItems[i].Text);
+                            if (i < item.SubItems.Count - 1)
+                                sw.Write(";");
+                        }
+                        sw.WriteLine();
+                    }
                 }
             }
         }
-
-       
-
     }
 
     private void txtContractSearch_TextChanged(object sender, EventArgs e)
