@@ -59,6 +59,7 @@
             columnHeader8 = new ColumnHeader();
             columnHeader9 = new ColumnHeader();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             lblTime = new Label();
             panel4 = new Panel();
             label11 = new Label();
@@ -100,14 +101,13 @@
             label12 = new Label();
             label7 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            pictureBox1 = new PictureBox();
             workPanel.SuspendLayout();
             userPanel.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblUser
@@ -381,6 +381,16 @@
             panel1.Size = new Size(1246, 61);
             panel1.TabIndex = 7;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 55);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 24;
+            pictureBox1.TabStop = false;
+            // 
             // lblTime
             // 
             lblTime.AutoSize = true;
@@ -435,7 +445,7 @@
             // 
             // btnDeleteWork
             // 
-            btnDeleteWork.Location = new Point(439, 363);
+            btnDeleteWork.Location = new Point(439, 373);
             btnDeleteWork.Name = "btnDeleteWork";
             btnDeleteWork.Size = new Size(75, 23);
             btnDeleteWork.TabIndex = 19;
@@ -445,7 +455,7 @@
             // 
             // btnEditWork
             // 
-            btnEditWork.Location = new Point(439, 334);
+            btnEditWork.Location = new Point(439, 344);
             btnEditWork.Name = "btnEditWork";
             btnEditWork.Size = new Size(75, 23);
             btnEditWork.TabIndex = 18;
@@ -455,7 +465,7 @@
             // 
             // btnAddWork
             // 
-            btnAddWork.Location = new Point(439, 305);
+            btnAddWork.Location = new Point(439, 315);
             btnAddWork.Name = "btnAddWork";
             btnAddWork.Size = new Size(75, 23);
             btnAddWork.TabIndex = 17;
@@ -507,7 +517,7 @@
             // 
             // btnDeleteContract
             // 
-            btnDeleteContract.Location = new Point(491, 49);
+            btnDeleteContract.Location = new Point(513, 49);
             btnDeleteContract.Name = "btnDeleteContract";
             btnDeleteContract.Size = new Size(75, 23);
             btnDeleteContract.TabIndex = 23;
@@ -518,7 +528,7 @@
             // btnAddContract
             // 
             btnAddContract.Cursor = Cursors.Hand;
-            btnAddContract.Location = new Point(410, 49);
+            btnAddContract.Location = new Point(432, 49);
             btnAddContract.Name = "btnAddContract";
             btnAddContract.Size = new Size(75, 23);
             btnAddContract.TabIndex = 21;
@@ -755,16 +765,6 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.logo;
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(57, 55);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 24;
-            pictureBox1.TabStop = false;
-            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -789,13 +789,13 @@
             userPanel.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

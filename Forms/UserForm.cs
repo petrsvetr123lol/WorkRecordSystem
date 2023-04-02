@@ -140,7 +140,7 @@ namespace WorkRecordSystem.Forms
         {
             if (listViewContracts.SelectedItems.Count > 0)
             {
-                decimal hours = Convert.ToDecimal(listViewContracts.SelectedItems[0].SubItems[6].Text);
+                decimal hours = Convert.ToDecimal(listViewContracts.SelectedItems[0].SubItems[5].Text);
                 hours = hours + numericUpDownHours.Value;
                 sqlRepo.AddHours(hours, Convert.ToInt32(listViewContracts.SelectedItems[0].SubItems[0].Text));
                 LoadContracts();

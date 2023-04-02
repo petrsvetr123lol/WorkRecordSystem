@@ -375,15 +375,23 @@ namespace WorkRecordSystem.Classes
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
-                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                try
                 {
-                    cmd.CommandText = "INSERT INTO Contract (WorkType, Employee,CustomerName) VALUES (@WorkId,@EmployeeId,@CustomerName)";
-                    cmd.Parameters.AddWithValue("WorkId", contract.WorkId);
-                    cmd.Parameters.AddWithValue("EmployeeId", contract.EmployeeId);
-                    cmd.Parameters.AddWithValue("CustomerName", contract.CustomerName);
-                    cmd.ExecuteNonQuery();
+                    using (SqlCommand cmd = sqlConnection.CreateCommand())
+                    {
+                        cmd.CommandText = "INSERT INTO Contract (WorkType, Employee,CustomerName) VALUES (@WorkId,@EmployeeId,@CustomerName)";
+                        cmd.Parameters.AddWithValue("WorkId", contract.WorkId);
+                        cmd.Parameters.AddWithValue("EmployeeId", contract.EmployeeId);
+                        cmd.Parameters.AddWithValue("CustomerName", contract.CustomerName);
+                        cmd.ExecuteNonQuery();
+                    }
+                    sqlConnection.Close();
                 }
-                sqlConnection.Close();
+                catch(SqlException ex)
+                {
+                    MessageBox.Show("Špatně zadané údaje. Uživatel nenalezen. \n\nChybová hláška: \n"+ex.Message);
+                }
+              
             }
         }
         public void DeleteContract(int contractId)
